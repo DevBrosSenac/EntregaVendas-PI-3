@@ -213,7 +213,7 @@ public class ProdutoDAO {
         PreparedStatement stmt = null;
         Connection conn = null;
         
-        String sql = "SELECT * FROM produtos";
+        String sql = "SELECT * FROM produtos LIMIT 8";
                 
         try {
             conn = obterConexao();

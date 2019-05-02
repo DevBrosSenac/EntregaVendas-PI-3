@@ -23,8 +23,8 @@ public class CadastrarProdutoServlet extends HttpServlet {
         // RECUPERA INFORMACOES DA REQUISICAO
         produto.setNomeProd(request.getParameter("nome"));
         produto.setDescProd(request.getParameter("descricao"));
-        produto.setValorCompra(Float.parseFloat(request.getParameter("valorVenda")));
-        produto.setValorVenda(Float.parseFloat(request.getParameter("valorCompra")));
+        produto.setValorCompra(Float.parseFloat(request.getParameter("valorCompra")));
+        produto.setValorVenda(Float.parseFloat(request.getParameter("valorVenda")));
         produto.setQuantidade(Integer.parseInt(request.getParameter("quantidade")));
         produto.setCategoria(request.getParameter("categoria"));
         
