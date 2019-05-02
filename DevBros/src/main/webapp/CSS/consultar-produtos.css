@@ -1,0 +1,316 @@
+*{
+	margin:0px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+#fixed{
+	position: fixed;
+	width: 100%;
+}
+
+header{
+	width: 100%;
+	height: 100px;
+	background-color: black;
+}
+
+header div{
+	display: flex;
+	color: white;
+	font-size: 34pt;
+}
+
+header div img{
+	height: 90px;
+	width: 90px;
+	margin-top: 5px;
+	margin-left: 10px
+}
+
+header div h1{
+	margin-top: 7px;
+	margin-left: 35.15%;
+}
+
+.divProds{
+	padding-top: 20px;
+	padding-bottom: 20px;
+	text-align: center;
+	font-size: 25pt;
+	background-color: white;
+}
+
+.header{
+	border-top: 1px solid black; 
+	border-bottom: 1px solid black; 
+	height: 60px;
+	width: 100%;
+	background-color: white;
+}
+
+nav ul{
+	padding-left:0px; 
+}
+
+nav ul li{
+	list-style-type: none;
+    display: inline;
+    color: #000000;
+	font-size: 24pt;
+	font-weight: bold;
+}
+
+#barraVertical{
+	border-left: 1px solid black;
+	height: 60px;
+}
+
+nav a{
+    text-decoration: none;
+    font-size: 24pt;
+    color: #000000;
+    margin-top: 4px;
+    margin-bottom: 4px;
+	font-weight: bold;
+}
+
+nav a:hover{
+    font-size: 25pt;
+    color: red;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    font-weight: bold;
+}
+
+nav ul{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;	
+    align-items: center;
+    font-weight: bold;
+}
+
+.h3{
+	margin-top: 10px;
+	margin-bottom: 10px;
+	text-align: center;
+	font-size: 25pt;
+	color: black;
+}
+
+.organizar{
+	padding-bottom: 10px;
+	display: flex;
+	justify-content: space-between;
+	padding-left: 30px; 
+	padding-right: 30px; 
+}
+
+.tabela{
+	margin-top:20px; 
+	margin-left: 10px;
+	margin-bottom: 10px;
+	width: 100%;
+	border-collapse: collapse;
+}
+
+.organizarTable{
+        display: flex;
+        justify-content: center;
+        width: 100%;
+}
+
+.linhaPrinc{
+	font-size: 20pt;
+	width: 100%;
+	height: 50px;
+}
+
+.linhaPrinc th{
+	text-align: center;
+	width: 150px;
+	border: 1px solid black;
+	background-color: #009bdb;
+	color: white;
+}
+
+.linhaSec{
+	width: 100%;
+	height: 50px;
+}
+
+.linhaSec td{
+    font-size: 20pt;
+    text-align: center;
+    width: 130px;
+    border: 1px solid black;
+}
+
+
+.pesquisaExc{
+    border-top: 1px solid black;
+    font-size: 24pt;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    display:flex;
+    justify-content: flex-start;
+}
+
+.pesquisaExc h4{
+    margin-left: 40px;
+}
+
+.pesquisaExc input{
+    font-size: 17pt;
+    padding-left:10px; 
+    width: 390px;
+    height: 30px;
+    border-radius: 20px;
+    margin-left: 30px;
+}
+
+.buttonBusca{
+    font-size: 13pt;
+    width: 120px;
+    height: 30px;
+    font-weight: bold;
+    border-radius: 20px;
+    border-color: gray;
+    margin-left: 20px;
+}
+
+.divisor{
+	height: 180px;
+}
+
+.excluir{
+	display: flex;
+	justify-content: flex-end;
+	margin-right: 24px; 
+}
+
+.buttonExc{
+	font-size: 20pt;
+	width: 150px;
+	height: 60px;
+	font-weight: bold;
+	background-color: red;
+	color: white;
+	border-radius: 20px;
+	border-color: red;
+}
+
+#alteracao{
+	border-bottom:1px solid black; 
+	padding-bottom: 10px;
+}
+
+#espacador1{
+	height: 80px;
+}
+
+#espacador2{
+	height: 259.49px;
+	border-bottom: 1px solid black; 
+}
+
+#alteracaoTOP{
+	height: 260px;
+}
+
+.divNome{
+    font-size: 20px;
+    color: black;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding-right: 550px; 
+}
+
+.divDescricao{
+    font-size: 20px;
+    color: black;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-right: 522px; 
+}
+
+.divValorCV{
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.divValorCV p{
+    margin-right: 220px;
+    margin-left: -8px;
+}
+
+.divNomeInput input{
+    width: 600px;
+    height:32px;
+    border-radius:10px; 
+    padding-left: 10px;
+}
+
+.divDescricaoTxtArea textarea{
+    width: 600px;
+    height:64px;
+    border-radius:10px; 
+    padding-left: 10px;
+}
+
+.divValoresInput input{
+    width: 250px;
+    height: 32px;
+    border-radius:10px; 
+    margin-left: 100px;
+}
+
+.divNomeInput{
+    display:flex;
+    justify-content: center;
+    margin-right: 100px;
+}
+
+.divDescricaoTxtArea{
+    display:flex;
+    justify-content: center;
+    margin-right: 100px;
+}
+
+.divValoresInput{
+    display:flex;
+    justify-content: center;
+    margin-right: 200px;
+}
+
+div button{
+    height: 50px;
+    width: 150px;
+    font-size: 16pt;
+    border-radius: 15px;
+}
+
+.divBotao{
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 32%;
+}
+
+.divBotao button{
+    margin-left: 50px;
+}
+
+
+.espacadorFinal{
+    height: 73px;
+}
+
+.one{
+    width: 25px;
+}

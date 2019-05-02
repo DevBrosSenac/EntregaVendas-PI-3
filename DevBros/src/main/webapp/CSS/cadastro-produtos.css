@@ -1,0 +1,148 @@
+*{
+	margin:0px;
+}
+
+header{
+	width: 100%;
+	height: 100px;
+	background-color: black;
+}
+
+header div{
+	display: flex;
+	color: white;
+	font-size: 40px;
+}
+
+header div img{
+	height: 90px;
+	width: 90px;
+	margin-top: 5px;
+	margin-left: 10px
+}
+
+header div h1{
+	margin-top: 7px;
+	margin-left: 35.15%;
+}
+
+.divProds{
+	display: flex;
+	justify-content: center;
+	font-size: 35px;
+	margin-bottom: 4px;
+}
+
+.divNome{
+    font-size: 20px;
+    color: black;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding-right: 550px; 
+}
+
+.divDescricao{
+    font-size: 20px;
+    color: black;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-right: 522px; 
+}
+
+.divValorCV{
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.divValorCV p{
+    margin-right: 220px;
+    margin-left: -8px;
+}
+
+.divQTDCAT{
+    font-size: 20px;
+    display: flex;
+    justify-content:center;
+}
+
+.divQTDCAT p{
+    margin-right: 265px;
+    margin-left: -8px;
+}
+
+.divNomeInput input{
+    width: 600px;
+    height: 22.5px;
+    border-radius:10px; 
+}
+
+.divDescricaoTxtArea textarea{
+    width: 600px;
+    height: 45px;
+    border-radius:10px; 
+}
+
+.divValoresInput input{
+    width: 250px;
+    height: 22.5px;
+    border-radius:10px; 
+    margin-left: 100px;
+}
+
+.divQTDCATInput input{
+    width: 150px;
+    height: 22.5px;
+    border-radius:10px; 
+    margin-right: 180px; 
+}
+
+.divQTDCATInput select{
+    width: 200px;
+    height: 22.5px;
+    border-radius:10px; 
+    margin-left: 20px;
+    margin-right: 160px;
+}
+
+.divNomeInput{
+    display:flex;
+    justify-content: center;
+    margin-right: 100px;
+}
+
+.divDescricaoTxtArea{
+    display:flex;
+    justify-content: center;
+    margin-right: 100px;
+}
+
+.divValoresInput{
+    display:flex;
+    justify-content: center;
+    margin-right: 200px;
+}
+
+.divQTDCATInput{
+    display:flex;
+    justify-content: center;
+}
+
+div button{
+    height: 50px;
+    width: 150px;
+    font-size: 16pt;
+    border-radius: 15px;
+}
+
+.divBotao{
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 450px;
+}
+
+form{
+    margin-top: 60px;
+}
