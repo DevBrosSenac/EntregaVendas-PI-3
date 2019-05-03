@@ -2,10 +2,6 @@
 	margin:0px;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
 #fixed{
 	position: fixed;
 	width: 100%;

@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(name = "ProdutoServlet", urlPatterns = {"/produto"})
+@WebServlet(name = "CadastrarProdutoServlet", urlPatterns = {"/CadastrarProduto"})
 public class CadastrarProdutoServlet extends HttpServlet {
     
     protected void processRequest(String metodoHttp, HttpServletRequest request, HttpServletResponse response)

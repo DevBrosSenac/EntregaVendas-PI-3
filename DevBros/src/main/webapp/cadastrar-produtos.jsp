@@ -23,7 +23,7 @@
         <hr>
         <br><br>
         <div>
-            <form action="produto" method="post">
+            <form action="CadastrarProduto" method="post">
                 <div class="divNome">
                     <p>Nome do Produto:</p>
                 </div>
