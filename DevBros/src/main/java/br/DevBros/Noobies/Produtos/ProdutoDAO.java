@@ -19,8 +19,8 @@ public class ProdutoDAO {
         boolean linhasAfetadas = false;
         
         //Preparar string sql
-        String sql = "INSERT INTO produtos (nome, descricao, valorCompra, "
-                + "valorVenda, quantidade, categoria)"
+        String sql = "INSERT INTO tb_produtos (NOME_PRODUTO, DESCRICAO, VALOR_COMPRA, "
+                + "VALOR_VENDA, QUANTIDADE, CATEGORIA)"
                 + "VALUES (?, ?, ?, ?, ?, ?)";
         
         //Obtem conexão para SQL workbench
@@ -73,7 +73,7 @@ public class ProdutoDAO {
         Connection conn = null;
         boolean verdade = false;
         //Preparar string sql
-        String sql = "DELETE FROM produtos WHERE ID = ?";//INSERIR VARIÁVEL COM ID
+        String sql = "DELETE FROM tb_produtos WHERE COD_PRODUTO = ?";//INSERIR VARIÁVEL COM COD_PRODUTO
         
         //Obtem conexão para SQL workbench
         try{
@@ -120,7 +120,7 @@ public class ProdutoDAO {
         Connection conn = null;
         
         //Preparar string sql
-        String sql = "UPDATE produtos SET nome = ?, decricao = ?, valorCompra = ?, valorVenda = ?, quantidade = ?"
+        String sql = "UPDATE tb_produtos SET NOME_PRODUTO = ?, DESCRICAO = ?, VALOR_COMPRA = ?, VALOR_VENDA = ?, QUANTIDADE = ?"
                 + "WHERE id = ?";
         
         //Obten conexão para SQL workbench
@@ -167,7 +167,7 @@ public class ProdutoDAO {
         Connection conn = null;
         
         //Preparar string sql
-        String sql = "SELECT * FROM produtos WHERE id = ?";
+        String sql = "SELECT * FROM tb_produtos WHERE id = ?";
         
         //Obten conexão para SQL workbench
         try{
@@ -213,7 +213,7 @@ public class ProdutoDAO {
         PreparedStatement stmt = null;
         Connection conn = null;
         
-        String sql = "SELECT * FROM produtos LIMIT 8";
+        String sql = "SELECT * FROM tb_produtos LIMIT 8";
                 
         try {
             conn = obterConexao();
@@ -222,11 +222,11 @@ public class ProdutoDAO {
             
             while(rs.next()){
                 Produto prod = new Produto();
-                prod.setCodProduto(rs.getInt("id"));
-                prod.setNomeProd(rs.getString("nome"));
-                prod.setValorCompra(rs.getDouble("valorCompra"));
-                prod.setValorVenda(rs.getDouble("valorVenda"));
-                prod.setQuantidade(rs.getInt("quantidade"));
+                prod.setCodProduto(rs.getInt("COD_PRODUTO"));
+                prod.setNomeProd(rs.getString("NOME_PRODUTO"));
+                prod.setValorCompra(rs.getDouble("VALOR_COMPRA"));
+                prod.setValorVenda(rs.getDouble("VALOR_VENDA"));
+                prod.setQuantidade(rs.getInt("QUANTIDADE"));
                 
                 lista.add(prod);
             }
