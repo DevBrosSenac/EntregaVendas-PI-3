@@ -227,6 +227,7 @@ public class ProdutoDAO {
                 prod.setValorCompra(rs.getDouble("VALOR_COMPRA"));
                 prod.setValorVenda(rs.getDouble("VALOR_VENDA"));
                 prod.setQuantidade(rs.getInt("QUANTIDADE"));
+                prod.setCategoria(rs.getString("CATEGORIA"));
                 
                 lista.add(prod);
             }

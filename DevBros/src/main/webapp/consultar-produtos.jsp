@@ -39,7 +39,8 @@
                                 <th>NOME</th>
                                 <th>V.COMPRA</th>
                                 <th>V.VENDA</th>
-                                <th>QUANT</th>
+                                <th>QUANTIDADE</th>
+                                <th>CATEGORIA</th>
                                 <th>AÇÕES</th>
                             </tr>
                         </thead>
@@ -51,6 +52,7 @@
                                     <td><c:out value="${produto.valorCompra}" /></td>
                                     <td><c:out value="${produto.valorVenda}" /></td>
                                     <td><c:out value="${produto.quantidade}" /></td>
+                                    <td><c:out value="${produto.categoria}" /></td>
                                     <td>
                                         <a class="ancora" href="editarProd?codProduto=<c:out value='${produto.codProduto}'/>">Editar</a>
                                         <a class="ancora" href="excluirProd?codProduto=<c:out value='${produto.codProduto}'/>">Deletar</a>
