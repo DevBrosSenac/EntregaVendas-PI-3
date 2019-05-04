@@ -5,14 +5,15 @@ public class Cliente {
 
     private String nome;
     private String email;
-    private long telefone;
-    private long cpf;
+    private String telefone;
+    private String cpf;
+    private String endereco;
 
-    public Cliente(long cpf) {
+    public Cliente(String cpf) {
         this.cpf = cpf;
     }
 
-    public Cliente(String nome, String email, long telefone, long cpf) {
+    public Cliente(String nome, String email, String telefone, String cpf) {
         this.nome = nome;
         this.email = email;
         this.telefone = telefone;
@@ -38,19 +39,27 @@ public class Cliente {
         this.email = email;
     }
 
-    public long getTelefone() {
+    public String getTelefone() {
         return telefone;
     }
 
-    public void setTelefone(long telefone) {
+    public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
 
-    public long getCpf() {
+    public String getCpf() {
         return cpf;
     }
 
-    public void setCpf(long cpf) {
+    public void setCpf(String cpf) {
         this.cpf = cpf;
+    }
+    
+     public String getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
     }
 }

@@ -17,17 +17,19 @@ public class ClienteDAO {
         
         boolean linhasAfetadas = false;
         
-        String sql = "INSERT INTO tb_clientes (CPF_CLIENTE, EMAIL_CLIENTE, CPF_CLIENTE, TELEFONE_CLIENTE)"
-                     + "VALUES(?, ?, ?, ?)";
+        String sql = "INSERT INTO tb_clientes (NOME_CLIENTE,CPF_CLIENTE, ENDERECO_CLIENTE, TELEFONE_CLIENTE,EMAIL_CLIENTE)"
+                     + "VALUES(?,?,?, ?, ?)";
         
         try {
             conn = obterConexao();
             stmt = conn.prepareStatement(sql);
            
-            stmt.setLong(1, c.getCpf());
-            stmt.setString(2, c.getNome());
-            stmt.setLong(3, c.getTelefone());
-            stmt.setString(4, c.getEmail());          
+            
+            stmt.setString(1, c.getNome());
+            stmt.setString(2, c.getCpf());
+            stmt.setString(3, c.getEndereco());
+            stmt.setString(4, c.getTelefone());
+            stmt.setString(5, c.getEmail());          
             stmt.executeUpdate();
             
         } catch (ClassNotFoundException | SQLException e) {
@@ -67,9 +69,9 @@ public class ClienteDAO {
             stmt = conn.prepareStatement(sql);
                       
             stmt.setString(1, c.getEmail());
-            stmt.setLong(2, c.getTelefone());
+            stmt.setString(2, c.getTelefone());
             stmt.setString(3, c.getNome());
-            stmt.setLong(4, c.getCpf());           
+            stmt.setString(4, c.getCpf());           
             stmt.executeUpdate();
             
         } catch (ClassNotFoundException | SQLException e) {
@@ -102,7 +104,7 @@ public class ClienteDAO {
         try {
             conn = obterConexao();
             stmt = conn.prepareStatement(sql);
-            stmt.setLong(1, c.getCpf());
+            stmt.setString(1, c.getCpf());
             stmt.executeUpdate();
             
         } catch (ClassNotFoundException | SQLException e) {
@@ -136,14 +138,14 @@ public class ClienteDAO {
             conn = obterConexao();
             stmt = conn.prepareStatement(sql);
             
-            stmt.setLong(1, c.getCpf());
+            stmt.setString(1, c.getCpf());
             
             ResultSet rs = stmt.executeQuery();
            
             while(rs.next()){
-                c.setCpf(rs.getLong("CPF_CLIENTE"));
+                c.setCpf(rs.getString("CPF_CLIENTE"));
                 c.setNome(rs.getString("NOME_CLIENTE"));
-                c.setTelefone(rs.getLong("TELEFONE_CLIENTE"));        
+                c.setTelefone(rs.getString("TELEFONE_CLIENTE"));        
                 c.setEmail(rs.getString("EMAIL_CLIENTE"));
             }
             
@@ -182,10 +184,10 @@ public class ClienteDAO {
             
             while(rs.next()){
                 Cliente cliente = new Cliente();
-
-                cliente.setCpf(rs.getLong("CPF_CLIENTE"));                    
                 cliente.setNome(rs.getString("NOME_CLIENTE"));
-                cliente.setTelefone(rs.getLong("TELEFONE_CLIENTE"));   
+                cliente.setCpf(rs.getString("CPF_CLIENTE"));                    
+                cliente.setEndereco(rs.getString("ENDERECO_CLIENTE"));
+                cliente.setTelefone(rs.getString("TELEFONE_CLIENTE"));   
                 cliente.setEmail(rs.getString("EMAIL_CLIENTE"));
                 
                 lista.add(cliente);

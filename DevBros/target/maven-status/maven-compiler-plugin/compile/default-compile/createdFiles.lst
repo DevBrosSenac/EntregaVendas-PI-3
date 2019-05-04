@@ -3,11 +3,13 @@ br\DevBros\Noobies\Clientes\Cliente.class
 br\DevBros\Noobies\Utils\ConnectionUtils.class
 br\DevBros\Noobies\Funcionario\EditarFuncionarioServlet.class
 br\DevBros\Noobies\Produtos\CadastrarProdutoServlet.class
+br\DevBros\Noobies\Clientes\CadastrarClienteServlet.class
 br\DevBros\Noobies\Funcionario\DesativarFuncionarioServlet.class
 br\DevBros\Noobies\Funcionario\ConsultarFuncionarioServlet.class
 br\DevBros\Noobies\Funcionario\Funcionario.class
 br\DevBros\Noobies\Produtos\ExcluirProdutoServlet.class
 br\DevBros\Noobies\Clientes\ClienteDAO.class
+br\DevBros\Noobies\Clientes\ConsultarClienteServlet.class
 br\DevBros\Noobies\Funcionario\CadastroFuncionarioServlet.class
 br\DevBros\Noobies\Produtos\Produto.class
 br\DevBros\Noobies\Funcionario\FuncionarioDAO.class
