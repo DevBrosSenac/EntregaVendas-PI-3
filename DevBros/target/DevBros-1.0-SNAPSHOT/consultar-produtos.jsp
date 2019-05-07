@@ -24,8 +24,11 @@
         </div>
         <div class="pesquisaExc">
                 <h4>Pesquisa</h4>
-                <form action="consultar" method="post">
+                <form action="pesquisaProduto" method="post">
                     <input type="text" name="pesquisa">
+                    <c:if test="${not empty erroPesquisa}">
+                        <div style="background-color: lightcoral"><c:out value="${erroPesquisa}" /></div>
+                    </c:if>
                     <button class="buttonBusca"/>BUSCAR</button>
                 </form>
         </div>

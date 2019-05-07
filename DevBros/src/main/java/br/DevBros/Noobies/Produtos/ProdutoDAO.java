@@ -162,51 +162,51 @@ public class ProdutoDAO {
             }
         }
     }
-    public static void consultarProduto(Produto produto){
-        //Abrir conexao e deixa ela null
+    public static List<Produto> consultarProduto(String pesquisa){
+        List<Produto> lista = new ArrayList<>();
         PreparedStatement stmt = null;
         Connection conn = null;
         
-        //Preparar string sql
-        String sql = "SELECT * FROM tb_produtos WHERE id = ?";
-        
-        //Obten conexão para SQL workbench
-        try{
+        String sql = "SELECT * FROM tb_produtos WHERE NOME_PRODUTO LIKE '%"+pesquisa+"%';";
+                
+        try {
             conn = obterConexao();
             stmt = conn.prepareStatement(sql);
-            stmt.setString(1, produto.getNomeProd());
-            stmt.setString(2, produto.getDescProd());
-            stmt.setDouble(3, produto.getValorCompra());
-            stmt.setDouble(4, produto.getValorVenda());
-            stmt.setInt(5, produto.getQuantidade());           
-            stmt.setInt(6, produto.getCodProduto());
+
+            ResultSet rs = stmt.executeQuery();
             
-            // 2) Executar SQL
-            stmt.executeUpdate();
-        } 
-        catch (SQLException ex){
-            System.out.println("Não foi possível executar. SQL Exception");
-        } 
-        catch (ClassNotFoundException ex){
-            System.out.println("Não foi possível executar. ClassNotFound EXception");
+
+            while(rs.next()){
+                Produto prod = new Produto();
+                prod.setCodProduto(rs.getInt("COD_PRODUTO"));
+                prod.setNomeProd(rs.getString("NOME_PRODUTO"));
+                prod.setValorCompra(rs.getDouble("VALOR_COMPRA"));
+                prod.setValorVenda(rs.getDouble("VALOR_VENDA"));
+                prod.setQuantidade(rs.getInt("QUANTIDADE"));
+                prod.setCategoria(rs.getString("CATEGORIA"));
+                
+                lista.add(prod);
+            }
+        } catch (ClassNotFoundException | SQLException e) {
+            System.out.println("Não foi possível executar" + e);
         } finally{
-            if (stmt != null){
-                try{
+            if(stmt != null){
+                try {
                     stmt.close();
-                } 
-                catch (SQLException ex){
-                    System.out.println("Erro ao fechar stmt.");
+                } catch (SQLException e) {
+                    System.out.println("Erro ao fechar conexão" + e);
                 }
             }
-            if (conn != null){
-                try{
+            if(conn != null){
+                try {
                     conn.close();
-                } 
-                catch (SQLException ex){
-                    System.out.println("Erro ao fechar conn.");
+                } catch (SQLException e) {
+                    System.out.println("Erro ao fechar conexão" + e);
                 }
             }
         }
+        
+        return lista;
     }
     
     public static List<Produto> listarProdutos(){
