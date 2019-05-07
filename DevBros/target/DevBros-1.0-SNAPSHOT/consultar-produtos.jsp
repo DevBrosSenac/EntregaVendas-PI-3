@@ -24,7 +24,7 @@
         </div>
         <div class="pesquisaExc">
                 <h4>Pesquisa</h4>
-                <form action="">
+                <form action="consultar" method="post">
                     <input type="text" name="pesquisa">
                     <button class="buttonBusca"/>BUSCAR</button>
                 </form>
