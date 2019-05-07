@@ -1,10 +1,5 @@
 package br.DevBros.Noobies.Produtos;
 
-import br.DevBros.Noobies.Funcionario.ConsultarFuncionarioServlet;
-import br.DevBros.Noobies.Funcionario.Funcionario;
-import br.DevBros.Noobies.Funcionario.FuncionarioDAO;
-import br.DevBros.Noobies.Produtos.ProdutoDAO;
-import br.DevBros.Noobies.Produtos.Produto;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;

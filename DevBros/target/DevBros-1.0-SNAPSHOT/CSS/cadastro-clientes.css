@@ -1,0 +1,214 @@
+*{
+  margin: 0;
+  font-family: Roboto;
+}
+
+header{
+  width: 100%;
+  height: 100px;
+  background-color: black;
+}
+
+header div.titulo{
+  color: white;
+  font-size: 34pt;
+}
+
+header div img.logo{
+  height: 90px;
+  width: 90px;
+  margin-top: 5px;
+  margin-left: 10px
+  
+}
+
+header div h2{
+  margin-top: -100px;
+  text-align: center;
+}
+.h2{
+  top: 0;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+  font-size: 40px;
+  background-color: white;
+}
+hr{
+  color: black;
+  height: 3px;
+  background-color: black;
+}
+
+.divClientes{
+	display: flex;
+	justify-content: center;
+	font-size: 35px;
+	margin-bottom: 4px;
+}
+
+
+/*select{
+  width: 15%;
+  padding: 5px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #000;
+  border-radius: 5px;
+  box-sizing: border-box;
+}*/
+
+input[type=text]{
+  padding: 5px;
+  margin: 5px 0;
+  display: inline-block;
+  border: 1px solid #000;
+  border-radius: 10px;
+  box-sizing: border-box;
+  width: 400px;
+  height: 22.5px;
+  
+}
+
+/*button[type=submit]{
+  margin-top: 10px;
+  height: 35px;
+  font-size: 15pt;
+  font-family: verdana;
+  border-radius: 10px;
+}*/
+
+div button{
+    height: 45px;
+    width: 140px;
+    font-size: 16pt;
+    border-radius: 10px;
+    
+}
+
+.divBotao{
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 600px;
+    margin-bottom: 60px;
+    margin-top: 25px;
+}
+
+
+.divVoltar{
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 600px;
+    margin-top:10px;
+    color: cornflowerblue;
+}
+
+form{
+    margin-top: 60px;
+}
+
+.divNome{
+    font-size: 20px;
+    color: black;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding-right: 550px; 
+}
+
+.divNomeInput{
+    display:flex;
+    justify-content: center;
+    margin-right: 100px;
+}
+
+.divNomeInput input{
+    width: 500px;
+    height: 22.5px;
+    border-radius:10px; 
+}
+
+.divCPF{
+    font-size: 20px;
+    color: black;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding-right: 550px; 
+}
+
+.divCPFInput{
+    display:flex;
+    justify-content: center;
+    margin-right: 100px;
+}
+
+.divCPFInput input{
+    width: 500px;
+    height: 22.5px;
+    border-radius:10px; 
+}
+
+
+.divEndereco{
+    font-size: 20px;
+    color: black;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding-right: 550px; 
+}
+
+.divEnderecoInput{
+    display:flex;
+    justify-content: center;
+    margin-right: 100px;
+}
+
+.divEnderecoInput input{
+    width: 500px;
+    height: 22.5px;
+    border-radius:10px; 
+}
+
+.divTelefone{
+    font-size: 20px;
+    color: black;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding-right: 550px; 
+}
+
+.divTelefoneInput{
+    display:flex;
+    justify-content: center;
+    margin-right: 100px;
+}
+
+.divTelefoneInput input{
+    width: 500px;
+    height: 22.5px;
+    border-radius:10px; 
+}
+
+.divEmail{
+    font-size: 20px;
+    color: black;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding-right: 550px; 
+}
+
+.divEmailInput{
+    display:flex;
+    justify-content: center;
+    margin-right: 100px;
+}
+
+.divEmailInput input{
+    width: 500px;
+    height: 22.5px;
+    border-radius:10px; 
+}
