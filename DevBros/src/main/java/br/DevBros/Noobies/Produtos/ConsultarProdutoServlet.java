@@ -20,8 +20,22 @@ public class ConsultarProdutoServlet extends HttpServlet {
     private void listaProdutos(String metodoHttp, HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException, ServletException, ClassNotFoundException {
         
-        List<Produto> produtos = ProdutoDAO.listarProdutos();
-        request.setAttribute("listaProdutos", produtos);
+        String valorPesquisa = request.getParameter("pesquisa");
+        
+        if(valorPesquisa == null || valorPesquisa.equalsIgnoreCase("")){
+            List<Produto> produtos = ProdutoDAO.listarProdutos();
+            request.setAttribute("listaProdutos", produtos);
+        }else{
+            List<Produto> produtos;
+            try {
+                produtos = ProdutoDAO.procurar(valorPesquisa);
+                request.setAttribute("listaProdutos", produtos);
+            } catch (Exception ex) {
+                Logger.getLogger(ConsultarProdutoServlet.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+        }
+               
         RequestDispatcher dispatcher = request.getRequestDispatcher("consultar-produtos.jsp");
         dispatcher.forward(request, response);
     }

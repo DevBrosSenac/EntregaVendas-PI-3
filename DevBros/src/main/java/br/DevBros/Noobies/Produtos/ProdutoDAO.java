@@ -1,5 +1,6 @@
 package br.DevBros.Noobies.Produtos;
 
+import br.DevBros.Noobies.Utils.ConnectionUtils;
 import static br.DevBros.Noobies.Utils.ConnectionUtils.obterConexao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -251,6 +252,54 @@ public class ProdutoDAO {
         }
         
         return lista;
+    }
+        
+    public static List<Produto> procurar(String nomeProduto)
+        throws SQLException, Exception {
+        
+        String sql = " SELECT ID, NOME_PRODUTO, DESCRICAO, VALOR_COMPRA, "
+                + "VALOR_VENDA, QUANTIDADE, CATEGORIA from tb_produtos "
+                + "WHERE NOME_PRODUTO LIKE (?)";
+        
+        List<Produto> listaProdutos = null;
+        
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet result = null;        
+        
+        try{
+            connection = ConnectionUtils.obterConexao();
+            preparedStatement = connection.prepareStatement(sql);
+            
+            preparedStatement.setString(1, "%" + nomeProduto + "%");
+            
+            result = preparedStatement.executeQuery();
+            
+            while (result.next()) {
+                if (listaProdutos == null) {
+                    listaProdutos = new ArrayList<Produto>();
+                }
+                Produto produto = new Produto();
+                produto.setCodProduto(result.getInt("COD_PRODUTO"));
+                produto.setNomeProd(result.getString("NOME_PRODUTO"));
+                produto.setValorCompra(result.getDouble("VALOR_COMPRA"));
+                produto.setValorVenda(result.getDouble("VALOR_VENDA"));
+                produto.setQuantidade(result.getInt("QUANTIDADE"));
+                produto.setCategoria(result.getString("CATEGORIA"));
+                listaProdutos.add(produto);
+            }
+        }finally{
+            if(result != null && !result.isClosed()){
+                result.close();
+            }
+            if (preparedStatement != null && !preparedStatement.isClosed()) {
+                preparedStatement.close();
+            }
+            if (connection != null && !connection.isClosed()) {
+                connection.close();
+            }
+        }
+        return listaProdutos;
     }
     
 }

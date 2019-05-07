@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 C:\Users\victor.maoliveira\Desktop\EntregaVendas-PI-3\DevBros\src\main\java\br\DevBros\Noobies\Clientes\CadastrarClienteServlet.java
 C:\Users\victor.maoliveira\Desktop\EntregaVendas-PI-3\DevBros\src\main\java\br\DevBros\Noobies\Funcionario\DesativarFuncionarioServlet.java
 C:\Users\victor.maoliveira\Desktop\EntregaVendas-PI-3\DevBros\src\main\java\br\DevBros\Noobies\Funcionario\ConsultarFuncionarioServlet.java
@@ -14,3 +15,21 @@ C:\Users\victor.maoliveira\Desktop\EntregaVendas-PI-3\DevBros\src\main\java\br\D
 C:\Users\victor.maoliveira\Desktop\EntregaVendas-PI-3\DevBros\src\main\java\br\DevBros\Noobies\Clientes\ClienteDAO.java
 C:\Users\victor.maoliveira\Desktop\EntregaVendas-PI-3\DevBros\src\main\java\br\DevBros\Noobies\Produtos\ConsultarProdutoServlet.java
 C:\Users\victor.maoliveira\Desktop\EntregaVendas-PI-3\DevBros\src\main\java\br\DevBros\Noobies\Funcionario\FuncionarioDAO.java
+=======
+C:\Users\carlos.silva\Desktop\RAMSES\ADOSePROJETOS\EntregaVendas-PI-3\DevBros\src\main\java\br\DevBros\Noobies\Clientes\ConsultarClienteServlet.java
+C:\Users\carlos.silva\Desktop\RAMSES\ADOSePROJETOS\EntregaVendas-PI-3\DevBros\src\main\java\br\DevBros\Noobies\Clientes\CadastrarClienteServlet.java
+C:\Users\carlos.silva\Desktop\RAMSES\ADOSePROJETOS\EntregaVendas-PI-3\DevBros\src\main\java\br\DevBros\Noobies\Clientes\ClienteDAO.java
+C:\Users\carlos.silva\Desktop\RAMSES\ADOSePROJETOS\EntregaVendas-PI-3\DevBros\src\main\java\br\DevBros\Noobies\Funcionario\DesativarFuncionarioServlet.java
+C:\Users\carlos.silva\Desktop\RAMSES\ADOSePROJETOS\EntregaVendas-PI-3\DevBros\src\main\java\br\DevBros\Noobies\Funcionario\EditarFuncionarioServlet.java
+C:\Users\carlos.silva\Desktop\RAMSES\ADOSePROJETOS\EntregaVendas-PI-3\DevBros\src\main\java\br\DevBros\Noobies\Funcionario\ConsultarFuncionarioServlet.java
+C:\Users\carlos.silva\Desktop\RAMSES\ADOSePROJETOS\EntregaVendas-PI-3\DevBros\src\main\java\br\DevBros\Noobies\Funcionario\FuncionarioDAO.java
+C:\Users\carlos.silva\Desktop\RAMSES\ADOSePROJETOS\EntregaVendas-PI-3\DevBros\src\main\java\br\DevBros\Noobies\Produtos\ConsultarProdutoServlet.java
+C:\Users\carlos.silva\Desktop\RAMSES\ADOSePROJETOS\EntregaVendas-PI-3\DevBros\src\main\java\br\DevBros\Noobies\Funcionario\Funcionario.java
+C:\Users\carlos.silva\Desktop\RAMSES\ADOSePROJETOS\EntregaVendas-PI-3\DevBros\src\main\java\br\DevBros\Noobies\Produtos\ExcluirProdutoServlet.java
+C:\Users\carlos.silva\Desktop\RAMSES\ADOSePROJETOS\EntregaVendas-PI-3\DevBros\src\main\java\br\DevBros\Noobies\Utils\ConnectionUtils.java
+C:\Users\carlos.silva\Desktop\RAMSES\ADOSePROJETOS\EntregaVendas-PI-3\DevBros\src\main\java\br\DevBros\Noobies\Clientes\Cliente.java
+C:\Users\carlos.silva\Desktop\RAMSES\ADOSePROJETOS\EntregaVendas-PI-3\DevBros\src\main\java\br\DevBros\Noobies\Funcionario\CadastroFuncionarioServlet.java
+C:\Users\carlos.silva\Desktop\RAMSES\ADOSePROJETOS\EntregaVendas-PI-3\DevBros\src\main\java\br\DevBros\Noobies\Produtos\CadastrarProdutoServlet.java
+C:\Users\carlos.silva\Desktop\RAMSES\ADOSePROJETOS\EntregaVendas-PI-3\DevBros\src\main\java\br\DevBros\Noobies\Produtos\Produto.java
+C:\Users\carlos.silva\Desktop\RAMSES\ADOSePROJETOS\EntregaVendas-PI-3\DevBros\src\main\java\br\DevBros\Noobies\Produtos\ProdutoDAO.java
+>>>>>>> 480a4b1a061af6f5e121b609e3e44ac340e2c7c9
