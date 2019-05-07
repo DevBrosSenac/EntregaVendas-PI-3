@@ -8,6 +8,7 @@ br\DevBros\Noobies\Clientes\CadastrarClienteServlet.class
 br\DevBros\Noobies\Funcionario\DesativarFuncionarioServlet.class
 br\DevBros\Noobies\Funcionario\ConsultarFuncionarioServlet.class
 br\DevBros\Noobies\Funcionario\Funcionario.class
+br\DevBros\Noobies\Produtos\EditarProdutoServlet.class
 br\DevBros\Noobies\Produtos\ExcluirProdutoServlet.class
 br\DevBros\Noobies\Clientes\ClienteDAO.class
 br\DevBros\Noobies\Clientes\ConsultarClienteServlet.class

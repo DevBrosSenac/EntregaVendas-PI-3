@@ -18,36 +18,66 @@
         <br>
         <hr>
         <div>
-            <form>
-                <div class="divNome">
+            <form action="CadastrarProduto" method="post">
+                <div class="divDescricao">
                     <p>ID do Produto:</p>
                 </div>
-                <div class="divNomeInput">
-                    <input name="codProduto" type="text" disabled>
+                <div class="divDescricaoTxtArea">
+                    <input type="text">
+                    <c:if test="${not empty erroDescricao}">
+                        <div style="background-color: lightcoral"><c:out value="${erroDescricao}" /></div>
+                    </c:if>
                 </div>
-                <br>
                 <div class="divNome">
                     <p>Nome do Produto:</p>
                 </div>
                 <div class="divNomeInput">
-                    <input name="nome" type="text" required disabled>
+                    <input name="nome" type="text" required>
+                    <c:if test="${not empty erroNome}">
+                        <div style="background-color: lightcoral"><c:out value="${erroNome}" /></div>
+                    </c:if>
                 </div>
-                <br>
+
                 <div class="divValorCV">
                     <p>Valor de Compra:</p>
                     <p>Valor de venda:</p>
                 </div>
                 <div class="divValoresInput">
                     <input name="valorCompra" type="text" required>
+                    <c:if test="${not empty erroValorCompra}">
+                        <div style="background-color: lightcoral"><c:out value="${erroDescricao}" /></div>
+                    </c:if>                    
                     <input name="valorVenda" type="text" required>
+                    <c:if test="${not empty erroValorVenda}">
+                        <div style="background-color: lightcoral"><c:out value="${erroDescricao}" /></div>
+                    </c:if>
                 </div>
-                <br><br>
+                <div class="divQTDCAT">
+                    <p>Quantidade:</p>
+                    <p>Categoria:</p>
+                </div>
+                <div class="divQTDCATInput">
+                    <input name="quantidade" type="text" required>
+                    <c:if test="${not empty erroQuantidade}">
+                        <div style="background-color: lightcoral"><c:out value="${erroDescricao}" /></div>
+                    </c:if>
+                    <select name="categoria">
+                        <option value="">Selecione uma Categoria...</option>
+                        <option value="PS4">PS4</option>
+                        <option value="XBOX-ONE">XBOX ONE</option>
+                        <option value="SWITCH">Nintendo Switch</option>
+                        <option value="TABULEIRO">Tabuleiro</option>
+                        <option value="PC">PC</option>
+                    </select>
+                    <c:if test="${not empty erroCategoria}">
+                        <div style="background-color: lightcoral"><c:out value="${erroDescricao}" /></div>
+                    </c:if>
+                </div>
+                <br><br><br>
                 <div class="divBotao">
-                    <button type="reset">Limpar</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <button type="submit">Alterar</button>
-                </div>
+                    <button type="reset">Limpar</button>
+                    <button type="submit">Cadastrar</button>
             </form>
-            <div class="espacadorFinal"></div>
         </div>
     </body>
 </html>

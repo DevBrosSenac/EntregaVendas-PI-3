@@ -81,7 +81,7 @@
                 </div>
                 <br><br><br>
                 <div class="divBotao">
-                    <button type="reset">Limpar</button>
+                    <button type="reset">Limpar</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <button type="submit">Cadastrar</button>
             </form>
         </div>
