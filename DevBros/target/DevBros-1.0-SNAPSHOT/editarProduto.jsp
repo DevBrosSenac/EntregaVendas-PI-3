@@ -23,7 +23,7 @@
                     <p>ID do Produto:</p>
                 </div>
                 <div class="divDescricaoTxtArea">
-                    <input type="text">
+                    <input type="text" disabled>
                     <c:if test="${not empty erroDescricao}">
                         <div style="background-color: lightcoral"><c:out value="${erroDescricao}" /></div>
                     </c:if>
@@ -32,7 +32,7 @@
                     <p>Nome do Produto:</p>
                 </div>
                 <div class="divNomeInput">
-                    <input name="nome" type="text" required>
+                    <input name="nome" type="text" required disabled>
                     <c:if test="${not empty erroNome}">
                         <div style="background-color: lightcoral"><c:out value="${erroNome}" /></div>
                     </c:if>
@@ -52,11 +52,11 @@
                         <div style="background-color: lightcoral"><c:out value="${erroDescricao}" /></div>
                     </c:if>
                 </div>
-                <div class="divQTDCAT">
+                    <div class="divQTDCAT" id="divQTDCAT">
                     <p>Quantidade:</p>
                     <p>Categoria:</p>
                 </div>
-                <div class="divQTDCATInput">
+                <div class="divQTDCATInput" id="divQTDCATInput">
                     <input name="quantidade" type="text" required>
                     <c:if test="${not empty erroQuantidade}">
                         <div style="background-color: lightcoral"><c:out value="${erroDescricao}" /></div>

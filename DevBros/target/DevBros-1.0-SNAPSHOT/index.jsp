@@ -5,44 +5,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Home</title>
-    <link rel="stylesheet" type="text/css" href="CSS/menu.css">
+    <title>Labs Login</title>
+    <link rel="stylesheet" href="CSS/login.css">
     <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
 </head>
-    <body>
-        <header>
+<body>
+    <center>
+        <div class="div">
+            <img src="img/logo.png" alt="Logo" class="logo"><br>
             <div>
-                <img src="img/logo-simple.png">
-                <h1>Noobies</h1>
+                <form method="get">
+                    <div>
+                        <img src="img/iconUser.png">
+                        <input type="text" required><br><br>
+                    </div>
+                    <div>
+                        <img src="img/iconKey.png">
+                        <input type="password" required><br><br>
+                    </div>
+                    <button type="submit">Entrar</button>            
+                </form>
             </div>
-        </header>
-        <div class="divProd">
-            <h2>MENU</h2>
         </div>
-        <hr>
-        <br><br>
-        <div class="botoesCenter">
-            <button>
-                <a href="/DevBros/produtos.jsp"><img src="img/prods.png"/></a>
-            </button>
-        </div>
-        <div class="botoesCanto">
-            <button>
-                <a href="/DevBros/ti.jsp"><img src="img/ti.png"></a>
-            </button>
-            <button>
-                <a href="/DevBros/vendas.jsp"><img src="img/vendas.png"></a>
-            </button>
-        </div>
-        <div class="botoesCenter">
-            <button>
-                <a href="/DevBros/adm.jsp"><img src="img/adm.png"></a>
-            </button>
-        </div>
-        <footer>
-            <div class="divDevs"> 
-                <img src="img/devbros.png">
-            </div>
-        </footer>
-    </body>
+    </center>
+</body>
+
 </html>

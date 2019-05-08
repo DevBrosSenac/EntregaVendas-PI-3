@@ -57,7 +57,7 @@
                                     <td><c:out value="${produto.quantidade}" /></td>
                                     <td><c:out value="${produto.categoria}" /></td>
                                     <td>
-                                        <a class="ancora" href="editarProd?codProduto=<c:out value='${produto.codProduto}'/>">
+                                        <a class="ancora" href="editarProd?codProduto=<c:out value='${produto.codProduto}'/>&nome=<c:out value='${produto.nomeProd}'/>&valorCompra=<c:out value='${produto.valorCompra}'/>&valorVenda=<c:out value='${produto.valorVenda}'/>&quantidade=<c:out value='${produto.quantidade}'/>&categoria=<c:out value='${produto.categoria}'/>">
                                             <button>Editar</button>
                                         </a>
                                         <a class="ancora" href="excluirProd?codProduto=<c:out value='${produto.codProduto}'/>">
