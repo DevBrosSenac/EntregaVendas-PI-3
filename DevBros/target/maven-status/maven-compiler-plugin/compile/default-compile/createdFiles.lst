@@ -1,4 +1,5 @@
 br\DevBros\Noobies\Produtos\ProdutoDAO.class
+br\DevBros\Noobies\Clientes\EditarClienteServlet.class
 br\DevBros\Noobies\Produtos\PesquisarProdutoServlet.class
 br\DevBros\Noobies\Clientes\Cliente.class
 br\DevBros\Noobies\Utils\ConnectionUtils.class
