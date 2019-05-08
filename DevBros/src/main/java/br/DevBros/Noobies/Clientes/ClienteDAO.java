@@ -94,10 +94,11 @@ public class ClienteDAO {
         }   
     }
     //EXCLUSÃO DE CLIENTES
-    public static void excluirCliente(Cliente c){
+    public static boolean excluirCliente(Cliente c){
         
         PreparedStatement stmt = null;
         Connection conn = null;
+        boolean verdade = false;
         
         String sql = "DELETE FROM TB_CLIENTES WHERE CPF_CLIENTE = ?";
         
@@ -107,46 +108,58 @@ public class ClienteDAO {
             stmt.setString(1, c.getCpf());
             stmt.executeUpdate();
             
-        } catch (ClassNotFoundException | SQLException e) {
+        } catch (SQLException e) {
             System.out.println("Não foi possível executar" + e);
-        } finally{
+            verdade = false;
+        } catch(ClassNotFoundException ex){
+           System.out.println("Não foi possível executar. ClassNotFound Exception");
+           verdade = false;
+           
+        }finally{
             if(stmt != null){
                 try {
                     stmt.close();
+                    verdade = true;
                 } catch (SQLException e) {
                     System.out.println("Erro ao fechar conexão" + e);
+                    verdade = false;
                 }
             }
             if(conn != null){
                 try {
                     conn.close();
+                    verdade = true;
                 } catch (SQLException e) {
                     System.out.println("Erro ao fechar conexão" + e);
+                    verdade = true;
                 }
             }
         }
-        
+        return verdade;
     }
     //pesquisa de cliente
-    public Cliente pesquisarCliente(Cliente c){
+    public static List<Cliente> pesquisarCliente(String c){
         PreparedStatement stmt = null;
         Connection conn = null;
+        List<Cliente> lista = new ArrayList<Cliente>();
         
-        String sql = "SELECT * FROM tb_clientes WHERE CPF_CLIENTE = ?";
+        String sql = "SELECT * FROM tb_clientes WHERE CPF_CLIENTE = "+c+"";
         
         try {
             conn = obterConexao();
             stmt = conn.prepareStatement(sql);
-            
-            stmt.setString(1, c.getCpf());
+                       
             
             ResultSet rs = stmt.executeQuery();
            
             while(rs.next()){
-                c.setCpf(rs.getString("CPF_CLIENTE"));
-                c.setNome(rs.getString("NOME_CLIENTE"));
-                c.setTelefone(rs.getString("TELEFONE_CLIENTE"));        
-                c.setEmail(rs.getString("EMAIL_CLIENTE"));
+                Cliente cliente = new Cliente();
+                cliente.setCpf(rs.getString("CPF_CLIENTE"));
+                cliente.setNome(rs.getString("NOME_CLIENTE"));
+                cliente.setTelefone(rs.getString("TELEFONE_CLIENTE"));        
+                cliente.setEmail(rs.getString("EMAIL_CLIENTE"));
+                
+                lista.add(cliente);
             }
             
         } catch (ClassNotFoundException | SQLException e) {
@@ -167,7 +180,7 @@ public class ClienteDAO {
                 }
             }
         }
-        return c;
+        return lista;
     }
     //listagem de clientes
     public static List<Cliente> listarClientes(){

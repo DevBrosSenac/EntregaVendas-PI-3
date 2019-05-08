@@ -74,7 +74,7 @@ public class ProdutoDAO {
         Connection conn = null;
         boolean verdade = false;
         //Preparar string sql
-        String sql = "DELETE FROM tb_produtos WHERE COD_PRODUTO = ?";//INSERIR VARIÁVEL COM COD_PRODUTO
+        String sql = "DELETE FROM TB_PRODUTOS WHERE COD_PRODUTO = ?";//INSERIR VARIÁVEL COM COD_PRODUTO
         
         //Obtem conexão para SQL workbench
         try{
