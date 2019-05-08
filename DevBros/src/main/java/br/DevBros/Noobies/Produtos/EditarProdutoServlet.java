@@ -26,16 +26,20 @@ public class EditarProdutoServlet extends HttpServlet {
     private void editarProduto(String metodoHttp, HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException, ServletException, ClassNotFoundException {
         
+        int codProduto = Integer.parseInt(request.getParameter("codProduto"));
         String nome = request.getParameter("nome");
-        String valorCompra = request.getParameter("valorCompra");
-        String valorVenda = request.getParameter("valorVenda");
-        String quantidade = request.getParameter("quantidade");
+        double valorCompra = Double.parseDouble(request.getParameter("valorCompra"));
+        double valorVenda = Double.parseDouble(request.getParameter("valorVenda"));
+        int quantidade = Integer.parseInt(request.getParameter("quantidade"));
+        String categoria = request.getParameter("categoria");
       
         RequestDispatcher dispatcher = request.getRequestDispatcher("editarProduto.jsp");
+        /*request.setAttribute("codProduto", codProduto);
         request.setAttribute("nome", nome);
         request.setAttribute("valorCompra", valorCompra);
         request.setAttribute("valorVenda", valorVenda);
         request.setAttribute("quantidade", quantidade);
+        request.setAttribute("categoria", categoria);*/
         dispatcher.forward(request, response);
     }
 
