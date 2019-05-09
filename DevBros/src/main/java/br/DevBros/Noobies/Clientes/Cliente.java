@@ -13,7 +13,7 @@ public class Cliente {
         this.cpf = cpf;
     }
 
-    public Cliente(String cpf, String nome, String email, String telefone) {
+    public Cliente(String cpf, String nome, String telefone, String email ) {
         this.nome = nome;
         this.email = email;
         this.telefone = telefone;

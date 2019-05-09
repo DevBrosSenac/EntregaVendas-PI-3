@@ -61,7 +61,7 @@ public class ClienteDAO {
         PreparedStatement stmt = null;
         Connection conn = null;
         
-        String sql = "UPDATE tb_clientes SET NOME_CLIENTE=?, TELEFONE_CLIENTE=?, EMAIL_CLIENTE=? WHERE CPF_CLIENTE= ?";
+        String sql = "UPDATE tb_clientes SET NOME_CLIENTE = ?, TELEFONE_CLIENTE = ?, EMAIL_CLIENTE = b ? WHERE CPF_CLIENTE= ?";
         
         try {
             conn = obterConexao();
