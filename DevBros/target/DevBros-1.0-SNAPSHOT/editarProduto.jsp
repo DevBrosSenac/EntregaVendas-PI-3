@@ -23,7 +23,7 @@
                     <p>ID do Produto:</p>
                 </div>
                 <div class="divDescricaoTxtArea">
-                    <input type="text" disabled>
+                    <input value="${codProduto}" name="idProduto" type="text">
                     <c:if test="${not empty erroDescricao}">
                         <div style="background-color: lightcoral"><c:out value="${erroDescricao}" /></div>
                     </c:if>
@@ -32,7 +32,7 @@
                     <p>Nome do Produto:</p>
                 </div>
                 <div class="divNomeInput">
-                    <input name="nome" type="text" required disabled>
+                    <input value="${nome}" name="nome" type="text" required>
                     <c:if test="${not empty erroNome}">
                         <div style="background-color: lightcoral"><c:out value="${erroNome}" /></div>
                     </c:if>
@@ -43,11 +43,11 @@
                     <p>Valor de venda:</p>
                 </div>
                 <div class="divValoresInput">
-                    <input name="valorCompra" type="text" required>
+                    <input value="${valorCompra}" name="valorCompra" type="text" required>
                     <c:if test="${not empty erroValorCompra}">
                         <div style="background-color: lightcoral"><c:out value="${erroDescricao}" /></div>
                     </c:if>                    
-                    <input name="valorVenda" type="text" required>
+                    <input value="${valorVenda}" name="valorVenda" type="text" required>
                     <c:if test="${not empty erroValorVenda}">
                         <div style="background-color: lightcoral"><c:out value="${erroDescricao}" /></div>
                     </c:if>
@@ -57,7 +57,7 @@
                     <p>Categoria:</p>
                 </div>
                 <div class="divQTDCATInput" id="divQTDCATInput">
-                    <input name="quantidade" type="text" required>
+                    <input value="${quantidade}" name="quantidade" type="text" required>
                     <c:if test="${not empty erroQuantidade}">
                         <div style="background-color: lightcoral"><c:out value="${erroDescricao}" /></div>
                     </c:if>
