@@ -5,12 +5,11 @@
  */
 package br.DevBros.Noobies.Funcionario;
 
+import java.awt.BorderLayout;
 import java.io.IOException;
 import java.sql.Date;
-import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -27,7 +26,7 @@ public class CadastroFuncionarioServlet extends HttpServlet {
 
     protected void incluirFuncionario(String metodoHttp, HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         Funcionario func = new Funcionario();
         
         func.setUsuario(request.getParameter("user"));
@@ -40,13 +39,12 @@ public class CadastroFuncionarioServlet extends HttpServlet {
         func.setCargo(request.getParameter("typeoffice"));
         
         boolean linhasAfetadas = FuncionarioDAO.incluirFuncionario(func);
-        
-        
+  
         if(linhasAfetadas){
             RequestDispatcher dispatcher = request.getRequestDispatcher("/consulta");
             dispatcher.forward(request, response);
         }else{
-            RequestDispatcher dispatcher = request.getRequestDispatcher("cadastrar-funcionarios.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("listar-funcionarios.jsp");
             dispatcher.forward(request, response);
         }
 
@@ -54,7 +52,7 @@ public class CadastroFuncionarioServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException {       
         incluirFuncionario("GET", request, response);
     }
 
@@ -62,6 +60,5 @@ public class CadastroFuncionarioServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         incluirFuncionario("POST", request, response);
-
     }
 }

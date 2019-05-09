@@ -22,8 +22,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author sunse
  */
-@WebServlet(name = "ConsultarFuncionarioServlet", urlPatterns = {"/consulta"})
-public class ConsultarFuncionarioServlet extends HttpServlet {
+@WebServlet(name = "ListarFuncionarioServlet", urlPatterns = {"/lista"})
+public class ListarFuncionarioServlet extends HttpServlet {
 
     private void listaFuncionarios(String metodoHttp, HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException, ServletException {
@@ -40,7 +40,7 @@ public class ConsultarFuncionarioServlet extends HttpServlet {
         try {
             listaFuncionarios("GET", request, response);
         } catch (SQLException ex) {
-            Logger.getLogger(ConsultarFuncionarioServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ListarFuncionarioServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -50,7 +50,7 @@ public class ConsultarFuncionarioServlet extends HttpServlet {
         try {
             listaFuncionarios("POST", request, response);
         } catch (SQLException ex) {
-            Logger.getLogger(ConsultarFuncionarioServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ListarFuncionarioServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
         doGet(request, response);
     }

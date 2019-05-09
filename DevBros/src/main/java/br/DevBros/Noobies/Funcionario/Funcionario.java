@@ -27,10 +27,27 @@ public class Funcionario {
         
     }
     
+    //classe para instanciar id do funcionário para busca
     public Funcionario(int id){
         this.id = id;
     }
     
+    //classe para instanciar variáveis usuário e senha para autenticação do login
+    public Funcionario(String usuario, String senha){
+        this.usuario = usuario;
+        this.senha = senha;
+    }
+    
+    //classe instanciando variáveis para alterar cadastro
+    public Funcionario(int id, String usuario, String senha, String filial, String cargo){
+        this.usuario = usuario;
+        this.senha = senha;
+        this.filial = filial;
+        this.cargo = cargo;
+        this.id = id;
+    }
+    
+    //classe para instanciar variáveis para cadastrar funcionário
     public Funcionario(String usuario, String senha, String nome, long cpf, int rg, 
                        Date dataNascimento, String filial, String cargo){
         

@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Consulta de funcionários</title>
-  <link href = "CSS/consultar-funcionarios.css" rel = "stylesheet" type = "text/css"/>
+  <link href = "CSS/listar-funcionarios.css" rel = "stylesheet" type = "text/css"/>
 </head>
 
 <body>
@@ -46,7 +46,7 @@
                 <th class="trg">RG</th>
                 <th class="tfilial">FILIAL</th>
                 <th class="tcargo">CARGO</th>
-                <th class="tcargo">AÇÕES</th>
+                <th class="tacoes">AÇÕES</th>
               </tr>
         </thead>
         <tbody>
@@ -59,8 +59,12 @@
                 <td><c:out value="${funcionario.filial}"/></td>
                 <td><c:out value="${funcionario.cargo}"/></td>
                 <td>
-                    <a class="ancora" href="editar?id=<c:out value='${funcionario.id}'/>">Editar</a>
-                    <a class="ancora" href="desativar?id=<c:out value='${funcionario.id}'/>">Desativar</a>
+                    <a class="ancora" href="editar?id=${funcionario.id}">                                   
+                        <button class="edit">EDITAR</button>
+                    </a>
+                    <a class="ancora" href="desativar?id=${funcionario.id}">
+                        <button class="delete">DELETAR</button>
+                    </a>
                 </td>
             </tr>
             </c:forEach> 
@@ -69,6 +73,5 @@
   </div>
 </div>
 
-<script src = "JS/consultar-funcionarios.js" type = "text/javascript"></script>
 </body>
 </html>
