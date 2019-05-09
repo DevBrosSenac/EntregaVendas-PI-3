@@ -24,10 +24,9 @@ public class CadastrarClienteServlet extends HttpServlet {
         Cliente cliente = new Cliente();
 
         // RECUPERA INFORMACOES DA REQUISICAO
-        cliente.setNome(request.getParameter("nome"));
-        cliente.setCpf(request.getParameter("cpf"));
-        cliente.setEndereco(request.getParameter("endereco"));
-        cliente.setTelefone(request.getParameter("telefone"));
+        cliente.setCpf(request.getParameter("cpf"));  
+        cliente.setNome(request.getParameter("nome"));      
+        cliente.setTelefone(request.getParameter("fone"));
         cliente.setEmail(request.getParameter("email"));
 
         boolean linhasAfetadas = ClienteDAO.incluirCliente(cliente);
@@ -50,7 +49,7 @@ public class CadastrarClienteServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest("POST",request, response);
+        processRequest("POST", request, response);
 
     }
 }
