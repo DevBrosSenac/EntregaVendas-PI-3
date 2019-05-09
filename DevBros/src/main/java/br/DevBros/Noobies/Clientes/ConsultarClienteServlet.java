@@ -23,11 +23,12 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "ConsultarClienteServlet", urlPatterns = {"/consultarclientes"})
 public class ConsultarClienteServlet extends HttpServlet {
 
-    private void listaClientes(String metodoHttp, HttpServletRequest request, HttpServletResponse response)
+    private void listarClientes(String metodoHttp, HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException, ServletException, ClassNotFoundException {
 
         List<Cliente> clientes = ClienteDAO.listarClientes();
-        request.setAttribute("listaProdutos", clientes);
+        request.setAttribute("listaClientes", clientes);
+        
         RequestDispatcher dispatcher = request.getRequestDispatcher("consultar-clientes.jsp");
         dispatcher.forward(request, response);
 
@@ -37,7 +38,7 @@ public class ConsultarClienteServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-            listaClientes("GET", request, response);
+            listarClientes("GET", request, response);
         } catch (SQLException | ClassNotFoundException ex) {
             Logger.getLogger(ConsultarClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -47,7 +48,7 @@ public class ConsultarClienteServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-            listaClientes("POST", request, response);
+            listarClientes("POST", request, response);
         } catch (SQLException | ClassNotFoundException ex) {
             Logger.getLogger(ConsultarClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
         }

@@ -17,18 +17,18 @@ public class ClienteDAO {
         
         boolean linhasAfetadas = false;
         
-        String sql = "INSERT INTO tb_clientes (NOME_CLIENTE,CPF_CLIENTE, TELEFONE_CLIENTE, EMAIL_CLIENTE)"
+        String sql = "INSERT INTO tb_clientes (CPF_CLIENTE, NOME_CLIENTE, TELEFONE_CLIENTE,EMAIL_CLIENTE)"
                      + "VALUES(?,?,?,?)";
         
         try {
             conn = obterConexao();
             stmt = conn.prepareStatement(sql);
            
-            
-            stmt.setString(1, c.getNome());
-            stmt.setString(2, c.getCpf());
-            stmt.setString(3, c.getEmail());
-            stmt.setString(4, c.getTelefone());         
+            stmt.setString(1, c.getCpf());
+            stmt.setString(2, c.getNome());
+            stmt.setString(3, c.getTelefone());   
+            stmt.setString(4, c.getEmail());
+                  
             stmt.executeUpdate();
             
         } catch (ClassNotFoundException | SQLException e) {
@@ -196,8 +196,8 @@ public class ClienteDAO {
             
             while(rs.next()){
                 Cliente cliente = new Cliente();
-                cliente.setNome(rs.getString("NOME_CLIENTE"));
-                cliente.setCpf(rs.getString("CPF_CLIENTE"));                                    
+                cliente.setCpf(rs.getString("CPF_CLIENTE")); 
+                cliente.setNome(rs.getString("NOME_CLIENTE"));                                                 
                 cliente.setTelefone(rs.getString("TELEFONE_CLIENTE"));   
                 cliente.setEmail(rs.getString("EMAIL_CLIENTE"));
                 
