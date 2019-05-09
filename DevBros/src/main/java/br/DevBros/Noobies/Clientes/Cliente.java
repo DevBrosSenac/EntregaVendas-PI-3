@@ -7,7 +7,6 @@ public class Cliente {
     private String email;
     private String telefone;
     private String cpf;
-    private String endereco;
 
     public Cliente(String cpf) {
         this.cpf = cpf;
@@ -17,7 +16,7 @@ public class Cliente {
         this.nome = nome;
         this.email = email;
         this.telefone = telefone;
-        this.cpf = cpf;
+        this.cpf = cpf;       
     }
     public Cliente(){
         
@@ -53,13 +52,5 @@ public class Cliente {
 
     public void setCpf(String cpf) {
         this.cpf = cpf;
-    }
-    
-     public String getEndereco() {
-        return endereco;
-    }
-
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
     }
 }

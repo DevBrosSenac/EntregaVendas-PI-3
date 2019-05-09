@@ -35,8 +35,7 @@
                             <thead>
                                 <tr class="linhaPrinc">
                                     <th class="tnome">NOME</th>
-                                    <th class="tcpf">CPF</th>
-                                    <th class="tendereco">ENDEREÇO</th>
+                                    <th class="tcpf">CPF</th>                                   
                                     <th class="ttelefone">TELEFONE</th>
                                     <th class="temail">E-MAIL</th>
                                 </tr>
@@ -45,8 +44,7 @@
                                 <c:forEach items="${listaClientes}" var="cliente" >
                                     <tr class="linhaSec">
                                         <td><c:out value="${cliente.nome}" /></td>
-                                        <td><c:out value="${cliente.cpf}" /></td>
-                                        <td><c:out value="${cliente.endereco}" /></td>
+                                        <td><c:out value="${cliente.cpf}" /></td>                                      
                                         <td><c:out value="${cliente.telefone}" /></td>
                                         <td><c:out value="${cliente.email}" /></td>
                                         <td>

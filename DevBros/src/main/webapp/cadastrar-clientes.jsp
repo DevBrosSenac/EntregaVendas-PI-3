@@ -41,17 +41,7 @@
                         <div style="background-color: lightcoral"><c:out value="${erroCPF}" /></div>
                     </c:if>                
                 </div>
-                <br>
-                <div class="divEndereco">
-                    <label>Endereço: </label>
-                </div>
-                <div class="divEnderecoInput">
-                    <input class="endereco" type="text" name="address">
-                    <c:if test="${not empty erroEndereco}">
-                        <div style="background-color: lightcoral"><c:out value="${erroEndereco}" /></div>
-                    </c:if>
-                </div>
-                <br>
+                <br>              
                 <div class="divTelefone">
                     <label>Telefone: </label>
                 </div>
