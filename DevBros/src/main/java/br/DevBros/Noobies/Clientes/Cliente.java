@@ -3,16 +3,17 @@ import java.sql.Date;
 
 public class Cliente {
 
+    private String cpf;
     private String nome;
     private String email;
     private String telefone;
-    private String cpf;
+    
 
     public Cliente(String cpf) {
         this.cpf = cpf;
     }
 
-    public Cliente(String nome, String email, String telefone, String cpf) {
+    public Cliente(String cpf, String nome, String email, String telefone) {
         this.nome = nome;
         this.email = email;
         this.telefone = telefone;
@@ -21,6 +22,7 @@ public class Cliente {
     public Cliente(){
         
     }
+   
 
     public String getNome() {
         return nome;
