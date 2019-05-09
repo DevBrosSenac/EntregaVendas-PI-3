@@ -34,12 +34,12 @@ public class EditarProdutoServlet extends HttpServlet {
         String categoria = request.getParameter("categoria");
       
         RequestDispatcher dispatcher = request.getRequestDispatcher("editarProduto.jsp");
-        /*request.setAttribute("codProduto", codProduto);
+        request.setAttribute("codProduto", codProduto);
         request.setAttribute("nome", nome);
         request.setAttribute("valorCompra", valorCompra);
         request.setAttribute("valorVenda", valorVenda);
         request.setAttribute("quantidade", quantidade);
-        request.setAttribute("categoria", categoria);*/
+        request.setAttribute("categoria", categoria);
         dispatcher.forward(request, response);
     }
 
