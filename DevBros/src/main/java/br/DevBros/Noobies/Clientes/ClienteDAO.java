@@ -17,15 +17,15 @@ public class ClienteDAO {
         
         boolean linhasAfetadas = false;
         
-        String sql = "INSERT INTO tb_clientes (CPF_CLIENTE, NOME_CLIENTE, TELEFONE_CLIENTE,EMAIL_CLIENTE)"
+        String sql = "INSERT INTO tb_clientes (NOME_CLIENTE, CPF_CLIENTE, TELEFONE_CLIENTE, EMAIL_CLIENTE)"
                      + "VALUES(?,?,?,?)";
         
         try {
             conn = obterConexao();
             stmt = conn.prepareStatement(sql);
            
-            stmt.setString(1, c.getCpf());
-            stmt.setString(2, c.getNome());
+            stmt.setString(1, c.getNome());
+            stmt.setString(2, c.getCpf());           
             stmt.setString(3, c.getTelefone());   
             stmt.setString(4, c.getEmail());
                   
@@ -61,16 +61,19 @@ public class ClienteDAO {
         PreparedStatement stmt = null;
         Connection conn = null;
         
-        String sql = "UPDATE tb_clientes SET NOME_CLIENTE = ?, TELEFONE_CLIENTE = ?, EMAIL_CLIENTE = b ? WHERE CPF_CLIENTE= ?";
+        String sql = "UPDATE TB_CLIENTES SET NOME_CLIENTE = ?, CPF_CLIENTE =?, TELEFONE_CLIENTE = ?, EMAIL_CLIENTE = ? WHERE COD_CLIENTE= ?";
         
         try {
             conn = obterConexao();
             stmt = conn.prepareStatement(sql);
                       
-            stmt.setString(1, c.getEmail());
-            stmt.setString(2, c.getTelefone());
-            stmt.setString(3, c.getNome());
-            stmt.setString(4, c.getCpf());           
+            stmt.setString(1, c.getNome());
+            stmt.setString(2, c.getCpf()); 
+            stmt.setString(3, c.getTelefone());
+            stmt.setString(4, c.getEmail());
+            stmt.setInt(5, c.getcodCliente());
+            
+                      
             stmt.executeUpdate();
             
         } catch (ClassNotFoundException | SQLException e) {
@@ -99,12 +102,12 @@ public class ClienteDAO {
         Connection conn = null;
         boolean verdade = false;
         
-        String sql = "DELETE FROM TB_CLIENTES WHERE CPF_CLIENTE = ?";
+        String sql = "DELETE FROM TB_CLIENTES WHERE COD_CLIENTE = ?";
         
         try {
             conn = obterConexao();
             stmt = conn.prepareStatement(sql);
-            stmt.setString(1, c.getCpf());
+            stmt.setInt(1, c.getcodCliente());
             stmt.executeUpdate();
             
         } catch (SQLException e) {
@@ -137,12 +140,12 @@ public class ClienteDAO {
         return verdade;
     }
     //pesquisa de cliente
-    public static List<Cliente> pesquisarCliente(String c){
+    public static List<Cliente> pesquisarCliente(String pesquisa){
         PreparedStatement stmt = null;
         Connection conn = null;
         List<Cliente> lista = new ArrayList<Cliente>();
         
-        String sql = "SELECT * FROM tb_clientes WHERE CPF_CLIENTE = "+c+"";
+        String sql = "SELECT * FROM tb_clientes WHERE CPF_CLIENTE = '%"+pesquisa+"%'";
         
         try {
             conn = obterConexao();
@@ -153,8 +156,9 @@ public class ClienteDAO {
            
             while(rs.next()){
                 Cliente cliente = new Cliente();
-                cliente.setCpf(rs.getString("CPF_CLIENTE"));
+                cliente.setcodCliente(rs.getInt("COD_CLIENTE"));
                 cliente.setNome(rs.getString("NOME_CLIENTE"));
+                cliente.setCpf(rs.getString("CPF_CLIENTE"));                
                 cliente.setTelefone(rs.getString("TELEFONE_CLIENTE"));        
                 cliente.setEmail(rs.getString("EMAIL_CLIENTE"));
                 
@@ -187,7 +191,7 @@ public class ClienteDAO {
         PreparedStatement stmt = null;
         Connection conn = null;
         
-        String sql = "SELECT * FROM tb_clientes LIMIT 8";
+        String sql = "SELECT * FROM TB_CLIENTES";
                 
         try {
             conn = obterConexao();
@@ -196,8 +200,9 @@ public class ClienteDAO {
             
             while(rs.next()){
                 Cliente cliente = new Cliente();
-                cliente.setCpf(rs.getString("CPF_CLIENTE")); 
-                cliente.setNome(rs.getString("NOME_CLIENTE"));                                                 
+                cliente.setcodCliente(rs.getInt("COD_CLIENTE"));
+                cliente.setNome(rs.getString("NOME_CLIENTE"));
+                cliente.setCpf(rs.getString("CPF_CLIENTE"));                           
                 cliente.setTelefone(rs.getString("TELEFONE_CLIENTE"));   
                 cliente.setEmail(rs.getString("EMAIL_CLIENTE"));
                 

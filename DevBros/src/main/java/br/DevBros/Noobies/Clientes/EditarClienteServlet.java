@@ -1,6 +1,6 @@
 package br.DevBros.Noobies.Clientes;
 
-import br.DevBros.Noobies.Produtos.*;
+
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -18,15 +18,18 @@ public class EditarClienteServlet extends HttpServlet {
     private void editarCliente(String metodoHttp, HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException, ServletException, ClassNotFoundException {
         
+        int codProduto = Integer.parseInt(request.getParameter("codProduto"));
+        int codCliente = Integer.parseInt(request.getParameter("codCliente"));
         String nome = request.getParameter("nome");
-        String telefone = request.getParameter("telefone");
         String cpf = request.getParameter("cpf");
+        String telefone = request.getParameter("telefone");      
         String email = request.getParameter("email");
       
-        RequestDispatcher dispatcher = request.getRequestDispatcher("editarProduto.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("editarCliente.jsp");
+        request.setAttribute("CodCliente", codCliente);
         request.setAttribute("nome", nome);
-        request.setAttribute("telefone", telefone);
         request.setAttribute("cpf", cpf);
+        request.setAttribute("telefone", telefone);        
         request.setAttribute("email", email);
         dispatcher.forward(request, response);
     }
@@ -37,7 +40,7 @@ public class EditarClienteServlet extends HttpServlet {
         try {
             editarCliente("GET", request, response);
         } catch (SQLException | ClassNotFoundException ex) {
-            Logger.getLogger(ConsultarProdutoServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ConsultarClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -47,7 +50,7 @@ public class EditarClienteServlet extends HttpServlet {
         try {
             editarCliente("POST", request, response);
         } catch (SQLException | ClassNotFoundException ex) {
-            Logger.getLogger(ConsultarProdutoServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ConsultarClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
         doGet(request, response);
     }

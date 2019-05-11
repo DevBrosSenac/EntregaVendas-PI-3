@@ -14,9 +14,9 @@ public class ExcluirClienteServlet extends HttpServlet {
     protected void excluirCliente(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        String cpf = request.getParameter("codCliente");
+        String codCliente = request.getParameter("codCliente");
         
-        Cliente c = new Cliente(cpf);
+        Cliente c = new Cliente(codCliente);
         boolean retorno = ClienteDAO.excluirCliente(c);
         if(retorno){
             response.sendRedirect("consultar");

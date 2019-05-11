@@ -311,3 +311,10 @@ div button{
     width: 25px;
 }
 
+.divVoltar{
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 600px;
+    margin-top:10px;
+    color: cornflowerblue;
+}

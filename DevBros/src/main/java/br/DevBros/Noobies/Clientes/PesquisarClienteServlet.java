@@ -1,6 +1,6 @@
 package br.DevBros.Noobies.Clientes;
 
-import br.DevBros.Noobies.Produtos.*;
+import br.DevBros.Noobies.Clientes.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
@@ -48,7 +48,7 @@ public class PesquisarClienteServlet extends HttpServlet {
         try {
             listarClientes("POST", request, response);
         } catch (SQLException | ClassNotFoundException ex) {
-            Logger.getLogger(ConsultarProdutoServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ConsultarClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
         doGet(request, response);
     }

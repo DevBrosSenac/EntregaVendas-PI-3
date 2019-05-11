@@ -26,7 +26,7 @@
                     <label>Nome: </label>
                 </div>
                 <div class="divNomeInput">
-                    <input class="nome" type="text" name="nome" required>
+                    <input class="nome" type="text" name="nome" required value="${cliente.nome}">
                     <c:if test="${not empty erroNome}">
                         <div style="background-color: lightcoral"><c:out value="${erroNome}" /></div>
                     </c:if>
@@ -36,7 +36,7 @@
                     <label>CPF: </label>
                 </div>
                 <div class="divCPFInput">
-                    <input class = "cpf" type="text" name="cpf" required>
+                    <input class = "cpf" type="text" name="cpf" required value="${cliente.cpf}">
                     <c:if test="${not empty erroCPF}">
                         <div style="background-color: lightcoral"><c:out value="${erroCPF}" /></div>
                     </c:if>                
@@ -46,7 +46,7 @@
                     <label>Telefone: </label>
                 </div>
                 <div class="divTelefoneInput">
-                    <input class="telefone" type="text" name="fone">
+                    <input class="telefone" type="text" name="fone" value="${cliente.telefone}">
                     <c:if test="${not empty erroTelefone}">
                         <div style="background-color: lightcoral"><c:out value="${erroTelefone}" /></div>
                     </c:if>
@@ -56,7 +56,7 @@
                      <label>E-mail: </label>
                 </div>
                 <div class="divEmailInput">
-                    <input class="email" type="text" name="email">
+                    <input class="email" type="text" name="email" value="${cliente.email}">
                     <c:if test="${not empty erroEmail}">
                         <div style="background-color: lightcoral"><c:out value="${erroEmail}" /></div>
                     </c:if>

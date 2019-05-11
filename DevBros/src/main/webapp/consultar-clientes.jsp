@@ -9,6 +9,7 @@
     </head>
     <body>
         
+        
         <div id="fixed">
             <header>
                 <div>
@@ -23,8 +24,11 @@
             </div>
             <div class="pesquisaExc">
                 <h4>Pesquisa</h4>
-                <form action="">
+                <form action="pesquisaCliente" method="post">
                     <input type="text" name="pesquisa">
+                    <c:if test="${not empty erroPesquisa}">
+                        <div style="background-color: lightcoral"><c:out value="${erroPesquisa}" /></div>
+                    </c:if>
                     <button class="buttonBusca"/>BUSCAR</button>
                 </form>
             </div>
@@ -34,22 +38,26 @@
                         <table class="tabela">
                             <thead>
                                 <tr class="linhaPrinc">
+                                    <th class="tcodCliente">ID</th>
                                     <th class="tcpf">CPF</th> 
                                     <th class="tnome">NOME</th>                                  
                                     <th class="ttelefone">TELEFONE</th>
                                     <th class="temail">E-MAIL</th>
+                                    <th class="tacoes">AÇÕES</th>
+
                                 </tr>
                             </thead>
                             <tbody>
                                 <c:forEach items="${listaClientes}" var="cliente" >
                                     <tr class="linhaSec">
-                                        <td><c:out value="${cliente.cpf}" /></td>
-                                        <td><c:out value="${cliente.nome}" /></td>                                      
+                                        <td><c:out value="${cliente.codCliente}"/></td>
+                                        <td><c:out value="${cliente.nome}" /></td>  
+                                        <td><c:out value="${cliente.cpf}" /></td>        
                                         <td><c:out value="${cliente.telefone}" /></td>
                                         <td><c:out value="${cliente.email}" /></td>
                                         <td>
-                                            <a class="ancora" href="editarCliente?cpf=<c:out value='${cliente.cpf}'/>">Editar</a>
-                                            <a class="ancora" href="excluirCliente?cpf=<c:out value='${cliente.cpf}'/>">Deletar</a>
+                                            <a class="ancora" href="editarCliente?codCliente=<c:out value='${cliente.codCliente}'/>&cpf=<c:out value='${cliente.cpf}'/>&nome=<c:out value='${cliente.nome}'/>&telefone=<c:out value='${cliente.telefone}'/>&email=<c:out value='${cliente.email}'/>">Editar</a>
+                                            <a class="ancora" href="excluirCliente?codCliente=<c:out value='${cliente.codCliente}'/>">Deletar</a>
                                         </td>
                                     </tr>
                                 </c:forEach>
@@ -57,6 +65,11 @@
                         </table>
                     </div>
                 </div>
+            </div>
+            
+            <br>
+            <div class ="divVoltar" >
+            <a href="/DevBros/cadastrar-clientes.jsp"><button type="button">Voltar</button></a>
             </div>
         </body>
 </html>
