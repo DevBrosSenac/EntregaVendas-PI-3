@@ -6,7 +6,6 @@
 package br.DevBros.Noobies.Funcionario;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.logging.Level;
@@ -30,7 +29,7 @@ public class ListarFuncionarioServlet extends HttpServlet {
         
         List<Funcionario> funcionarios = FuncionarioDAO.listarFuncionarios();
         request.setAttribute("listaFuncionarios", funcionarios);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("consultar-funcionarios.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("listar-funcionarios.jsp");
         dispatcher.forward(request, response);
     }
 

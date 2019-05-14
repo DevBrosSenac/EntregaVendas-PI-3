@@ -18,7 +18,7 @@
             <h1>EDITAR FUNCIONÁRIOS</h1>
             <hr>
         </center>
-    <form action="atualizar" method="post">
+    <form action="editar" method="get">
         <div class="formulario">
             <div>
                 <label>ID: </label>
@@ -41,7 +41,7 @@
                 <label class="filial">Filial: </label>
 <!--                <input type="text" name="branch" required value="${funcionario.getFilial()}">-->
                 <select class="filial" name="branch" required value="${funcionario.getFilial()}">
-                  <option value="Nenhum" required>Selecionar...</option>
+                  <option value="${funcionario.getFilial()}" required>${funcionario.getFilial()}</option>
                   <option value="SP (MATRIZ)">SP (MATRIZ)</option>
                   <option value="Campina Grande">Campina Grande</option>
                   <option value="Joinville">Joinville</option>
@@ -51,7 +51,7 @@
                 <label class = "cargo">Cargo: </label>
 <!--                <input type="text" name="typeoffice" required value="${funcionario.getCargo()}">-->
                 <select class="opcoes" name="typeoffice" required value="${funcionario.getCargo()}">
-                  <option value="Nenhum" required>Selecionar...</option>
+                  <option value="${funcionario.getCargo()}" required>${funcionario.getCargo()}</option>
                   <option value="Diretor">Diretor</option>
                   <option value="Gerente global">Gerente global</option>
                   <option value="Gerente regional">Gerente regional</option>

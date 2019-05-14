@@ -32,8 +32,14 @@
 <div class="consultarTable">
     <div class="ladoTab">
     <div class="pesquisar">
-      Pesquisar funcionário: <input class="pesq" type="text" name="pesquisa">
-      <button class="buscar">BUSCAR</button>
+        <!--Pesquisar funcionário: <input class="pesq" type="text" name="pesquisa">
+       <a var="funcionario" class="ancoraB" href="pesquisar?nome=${funcionario.getNome()}">                                   
+            <button class="buscar">BUSCAR</button>
+         </a>-->
+        <form action="pesquisar" method="post">
+            Pesquisar funcionário: <input class="pesq" type="text" name="pesquisa" id="pesquisa">
+            <button class="buscar">BUSCAR</button>
+        </form>
     </div> 
   </div>
   <div class="tabConteudo">
@@ -49,24 +55,24 @@
                 <th class="tacoes">AÇÕES</th>
               </tr>
         </thead>
-        <tbody>
+        <tbody id="body">
            <c:forEach items="${listaFuncionarios}" var="funcionario">
-            <tr class="conteudo">
-                <td><c:out value="${funcionario.id}"/></td>
-                <td><c:out value="${funcionario.nome}"/></td>
-                <td><c:out value="${funcionario.cpf}"/></td>
-                <td><c:out value="${funcionario.rg}"/></td>
-                <td><c:out value="${funcionario.filial}"/></td>
-                <td><c:out value="${funcionario.cargo}"/></td>
-                <td>
-                    <a class="ancora" href="editar?id=${funcionario.id}">                                   
-                        <button class="edit">EDITAR</button>
-                    </a>
-                    <a class="ancora" href="desativar?id=${funcionario.id}">
-                        <button class="delete">DELETAR</button>
-                    </a>
-                </td>
-            </tr>
+                <tr class="conteudo">
+                    <td><c:out value="${funcionario.id}"/></td>
+                    <td><c:out value="${funcionario.nome}"/></td>
+                    <td><c:out value="${funcionario.cpf}"/></td>
+                    <td><c:out value="${funcionario.rg}"/></td>
+                    <td><c:out value="${funcionario.filial}"/></td>
+                    <td><c:out value="${funcionario.cargo}"/></td>
+                    <td>
+                        <a class="ancora" href="editar?id=${funcionario.id}">                                   
+                            <button class="edit">EDITAR</button>
+                        </a>
+                        <a class="ancora" href="desativar?id=${funcionario.id}">
+                            <button class="delete">DELETAR</button>
+                        </a>
+                    </td>
+                </tr>
             </c:forEach> 
         </tbody>
     </table>

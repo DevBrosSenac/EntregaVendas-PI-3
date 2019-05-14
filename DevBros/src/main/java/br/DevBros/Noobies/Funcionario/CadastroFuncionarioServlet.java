@@ -41,10 +41,10 @@ public class CadastroFuncionarioServlet extends HttpServlet {
         boolean linhasAfetadas = FuncionarioDAO.incluirFuncionario(func);
   
         if(linhasAfetadas){
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/consulta");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/lista");
             dispatcher.forward(request, response);
         }else{
-            RequestDispatcher dispatcher = request.getRequestDispatcher("listar-funcionarios.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("cadastrar-funcionarios.jsp");
             dispatcher.forward(request, response);
         }
 

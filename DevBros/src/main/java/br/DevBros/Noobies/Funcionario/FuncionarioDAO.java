@@ -237,4 +237,50 @@ public class FuncionarioDAO {
         
         return lista;
     }
+    
+    public static Funcionario consultarFuncionario(Funcionario f) {
+        
+        //List<Funcionario> listaFuncionario = new ArrayList<>();
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        
+        String sql = "SELECT * FROM tb_funcionarios WHERE NOME_FUNCIONARIO LIKE='%"+f.getNome()+"%'";       
+        
+        try{
+            conn = obterConexao();
+            stmt = conn.prepareStatement(sql);
+            stmt.setString(1, f.getNome());
+            ResultSet rs = stmt.executeQuery();
+            
+            while (rs.next()) {
+                Funcionario func = new Funcionario();
+                func.setId(rs.getInt("COD_FUNCIONARIO"));
+                func.setNome(rs.getString("NOME_FUNCIONARIO"));
+                func.setCpf(rs.getLong("CPF_FUNCIONARIO"));
+                func.setRg(rs.getInt("RG_FUNCIONARIO"));
+                func.setFilial(rs.getString("FILIAL_FUNCIONARIO"));
+                func.setCargo(rs.getString("CARGO_FUNCIONARIO"));
+                
+                //listaFuncionario.add(func);
+            }
+        } catch (ClassNotFoundException | SQLException e) {
+            System.out.println("Não foi possível executar" + e);
+        } finally {
+            if(stmt != null){
+                try {
+                    stmt.close();
+                } catch (SQLException e) {
+                    System.out.println("Erro ao fechar conexão" + e);
+                }
+            }
+            if(conn != null){
+                try {
+                    conn.close();
+                } catch (SQLException e) {
+                    System.out.println("Erro ao fechar conexão" + e);
+                }
+            }
+        }
+        return f;
+    }
 }

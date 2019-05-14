@@ -22,7 +22,7 @@
                 <a href="/DevBros/cadastrar-funcionarios.jsp">
                     <button class="cadbutton">CADASTRO DE FUNCIONÁRIOS</button>
                 </a>
-                <a href="/DevBros/consulta">
+                <a href="/DevBros/lista">
                     <button class="consbutton">CONSULTA DE FUNCIONÁRIOS</button>
                 </a>
             </div>

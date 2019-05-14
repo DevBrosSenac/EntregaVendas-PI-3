@@ -53,15 +53,9 @@
                 <input type="date" name="datebirth" required value="${funcionario.datebirth}">
             </div>
             <br>
-            <div>
-<!--                <label class="filial">Filial: </label>
-                    <select class="filial" name="branch" required value="${funcionario.branch}">
-                        <c:forEach var="filial" items="${listaFilial}">
-                            <option value="${filial.id}">${filial.nome}</option>
-                        </c:forEach>
-                    </select>-->
-                
+            <div>                
                 <label class="filial">Filial: </label>
+<!--                <input type="text" name="branch" required value="${funcionario.branch}">-->
                 <select class="filial" name="branch" required value="${funcionario.branch}">
                   <option value="Nenhum">Selecionar...</option>
                   <option value="SP (MATRIZ)">SP (MATRIZ)</option>
@@ -71,6 +65,7 @@
                 </select>
                 
                 <label class = "cargo">Cargo: </label>
+<!--                <input type="text" name="typeoffice" required value="${funcionario.typeoffice}">-->
                 <select class="opcoes" name="typeoffice" required value="${funcionario.typeoffice}">
                   <option value="Nenhum">Selecionar...</option>
                   <option value="Diretor">Diretor</option>

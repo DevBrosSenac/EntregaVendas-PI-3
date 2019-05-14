@@ -10,7 +10,6 @@ br\DevBros\Noobies\Produtos\CadastrarProdutoServlet.class
 br\DevBros\Noobies\Clientes\CadastrarClienteServlet.class
 br\DevBros\Noobies\Funcionario\DesativarFuncionarioServlet.class
 br\DevBros\Noobies\Funcionario\Funcionario.class
-br\DevBros\Noobies\Funcionario\PesquisarFuncionarioServlet.class
 br\DevBros\Noobies\Produtos\EditarProdutoServlet.class
 br\DevBros\Noobies\Funcionario\AtualizarFuncionariosServlet.class
 br\DevBros\Noobies\Produtos\ExcluirProdutoServlet.class
