@@ -27,7 +27,7 @@ public class DesativarFuncionarioServlet extends HttpServlet {
         
         Funcionario func = new Funcionario(id);
         FuncionarioDAO.desativarFuncionario(func);
-        response.sendRedirect("consulta");
+        response.sendRedirect("lista");
     }
 
     @Override

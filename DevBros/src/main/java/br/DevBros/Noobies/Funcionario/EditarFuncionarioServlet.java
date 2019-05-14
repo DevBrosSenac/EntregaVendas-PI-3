@@ -32,7 +32,7 @@ public class EditarFuncionarioServlet extends HttpServlet {
         func = FuncionarioDAO.pesquisar(func);
         request.setAttribute("funcionario", func);
         
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/listar-funcionarios.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/editar-funcionarios.jsp");
         dispatcher.forward(request, response);
     }
 
@@ -40,7 +40,17 @@ public class EditarFuncionarioServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
+        int id = Integer.parseInt(request.getParameter("id"));
+        String usuario = request.getParameter("user");
+        String senha = request.getParameter("pass");
+        String cargo = request.getParameter("branch");
+        String filial = request.getParameter("typeoffice");
         
+        Funcionario func = new Funcionario(id, usuario, senha, cargo, filial); 
+        FuncionarioDAO.alterarFuncionario(func);
+        
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/lista");
+        dispatcher.forward(request, response);
     }
 
 }

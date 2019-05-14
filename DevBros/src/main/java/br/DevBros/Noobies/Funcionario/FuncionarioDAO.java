@@ -5,7 +5,6 @@
  */
 package br.DevBros.Noobies.Funcionario;
 
-import br.DevBros.Noobies.Produtos.Produto;
 import static br.DevBros.Noobies.Utils.ConnectionUtils.obterConexao;
 import java.sql.Connection;
 import java.sql.Date;
@@ -27,7 +26,7 @@ public class FuncionarioDAO {
         
         boolean linhasAfetadas = false;
         
-        String sql = "INSERT INTO TB_FUNCIONARIOS (LOGIN_SIST, SENHA_SIST, NOME_FUNCIONARIO, CPF_FUNCIONARIO, RG_FUNCIONARIO, DATA_NASCIMENTO, FILIAL_FUNCIONARIO, CARGO_FUNCIONARIO)"
+        String sql = "INSERT INTO tb_funcionarios (LOGIN_SIST, SENHA_SIST, NOME_FUNCIONARIO, CPF_FUNCIONARIO, RG_FUNCIONARIO, DATA_NASCIMENTO, FILIAL_FUNCIONARIO, CARGO_FUNCIONARIO)"
                      + "VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
         
         try {
@@ -75,18 +74,17 @@ public class FuncionarioDAO {
         PreparedStatement stmt = null;
         Connection conn = null;
         
-        String sql = "UPDATE TB_FUNCIONARIO SET NOME_FUNCIONARIO=?, LOGIN_SIST=?, SENHA_SIST=?, FILIAL_FUNCIONARIO=?, CARGO_FUNCIONARIO=? WHERE COD_FUNCIONARIO=?";
+        String sql = "UPDATE tb_funcionarios SET LOGIN_SIST=?, SENHA_SIST=?, FILIAL_FUNCIONARIO=?, CARGO_FUNCIONARIO=? WHERE COD_FUNCIONARIO=?";
         
         try {
             conn = obterConexao();
             stmt = conn.prepareStatement(sql);
-            
-            stmt.setString(1, f.getNome());
-            stmt.setString(2, f.getUsuario());
-            stmt.setString(3, f.getSenha());
-            stmt.setString(4, f.getFilial());
-            stmt.setString(5, f.getCargo());
-            stmt.setInt(6, f.getId());
+
+            stmt.setString(1, f.getUsuario());
+            stmt.setString(2, f.getSenha());
+            stmt.setString(3, f.getFilial());
+            stmt.setString(4, f.getCargo());
+            stmt.setInt(5, f.getId());
             
             stmt.executeUpdate();
             
@@ -116,7 +114,7 @@ public class FuncionarioDAO {
         PreparedStatement stmt = null;
         Connection conn = null;
         
-        String sql = "DELETE FROM TB_FUNCIONARIOS WHERE COD_FUNCIONARIO = ?";
+        String sql = "DELETE FROM tb_funcionarios WHERE COD_FUNCIONARIO=?";
         
         try {
             conn = obterConexao();
@@ -149,7 +147,7 @@ public class FuncionarioDAO {
         PreparedStatement stmt = null;
         Connection conn = null;
         
-        String sql = "SELECT * FROM TB_FUNCIONARIOS WHERE COD_FUNCIONARIO = ?";
+        String sql = "SELECT * FROM tb_funcionarios WHERE COD_FUNCIONARIO=?";
         
         try {
             conn = obterConexao();
@@ -160,16 +158,15 @@ public class FuncionarioDAO {
             ResultSet rs = stmt.executeQuery();
             
             while(rs.next()){
-                Funcionario func = new Funcionario();
-                func.setId(rs.getInt("COD_PRODUTO"));
-                func.setUsuario(rs.getString("LOGIN_SIST"));
-                func.setSenha(rs.getString("SENHA_SIST"));
-                func.setNome(rs.getString("NOME_FUNCIONARIO"));
-                func.setCpf(rs.getLong("CPF_FUNCIONARIO"));
-                func.setRg(rs.getInt("RG_FUNCIONARIO"));
-                func.setDataNascimento(new Date(rs.getDate("DATA_NASCIMENTO").getTime()));
-                func.setFilial(rs.getString("FILIAL_FUNCIONARIO"));
-                func.setCargo(rs.getString("CARGO_FUNCIONARIO"));
+                f.setId(rs.getInt("COD_FUNCIONARIO"));
+                f.setUsuario(rs.getString("LOGIN_SIST"));
+                f.setSenha(rs.getString("SENHA_SIST"));
+                f.setNome(rs.getString("NOME_FUNCIONARIO"));
+                f.setCpf(rs.getLong("CPF_FUNCIONARIO"));
+                f.setRg(rs.getInt("RG_FUNCIONARIO"));
+                f.setDataNascimento(new Date(rs.getDate("DATA_NASCIMENTO").getTime()));
+                f.setFilial(rs.getString("FILIAL_FUNCIONARIO"));
+                f.setCargo(rs.getString("CARGO_FUNCIONARIO"));
             }
             
         } catch (ClassNotFoundException | SQLException e) {
@@ -198,7 +195,7 @@ public class FuncionarioDAO {
         PreparedStatement stmt = null;
         Connection conn = null;
         
-        String sql = "SELECT * FROM TB_FUNCIONARIOS";
+        String sql = "SELECT * FROM tb_funcionarios";
                 
         try {
             conn = obterConexao();
@@ -206,103 +203,8 @@ public class FuncionarioDAO {
             ResultSet rs = stmt.executeQuery();
             
             while(rs.next()){
-                Funcionario func = new Funcionario();
-                func.setId(rs.getInt("COD_PRODUTO"));
-                func.setUsuario(rs.getString("LOGIN_SIST"));
-                func.setSenha(rs.getString("SENHA_SIST"));
-                func.setNome(rs.getString("NOME_FUNCIONARIO"));
-                func.setCpf(rs.getLong("CPF_FUNCIONARIO"));
-                func.setRg(rs.getInt("RG_FUNCIONARIO"));
-                func.setDataNascimento(new Date(rs.getDate("DATA_NASCIMENTO").getTime()));
-                func.setFilial(rs.getString("FILIAL_FUNCIONARIO"));
-                func.setCargo(rs.getString("CARGO_FUNCIONARIO"));
-                
-                lista.add(func);
-            }
-        } catch (ClassNotFoundException | SQLException e) {
-            System.out.println("Não foi possível executar" + e);
-        } finally{
-            if(stmt != null){
-                try {
-                    stmt.close();
-                } catch (SQLException e) {
-                    System.out.println("Erro ao fechar conexão" + e);
-                }
-            }
-            if(conn != null){
-                try {
-                    conn.close();
-                } catch (SQLException e) {
-                    System.out.println("Erro ao fechar conexão" + e);
-                }
-            }
-        }
-        
-        return lista;
-    }
-    
-    public static Funcionario verificarUsuario(Funcionario f){
-
-        PreparedStatement stmt = null;
-        Connection conn = null;
-        
-        String sql = "SELECT * FROM TB_FUNCIONARIOS WHERE LOGIN_SIST='?', SENHA_SIST='?'";
-        
-        try {
-            conn = obterConexao();
-            stmt = conn.prepareStatement(sql);
-
-            stmt.setString(1, f.getUsuario());
-            stmt.setString(2, f.getSenha());
-            
-            ResultSet rs = stmt.executeQuery();
-            
-            if(rs.next()){
                 Funcionario func = new Funcionario();
                 func.setId(rs.getInt("COD_FUNCIONARIO"));
-                func.setUsuario("LOGIN_SIST");
-                func.setSenha("SENHA_SIST");
-            }
-            
-        } catch (ClassNotFoundException | SQLException e) {
-            System.out.println("Não foi possível executar" + e);
-        } finally{
-            if(stmt != null){
-                try {
-                    stmt.close();
-                } catch (SQLException e) {
-                    System.out.println("Erro ao fechar conexão" + e);
-                }
-            }
-            if(conn != null){
-                try {
-                    conn.close();
-                } catch (SQLException e) {
-                    System.out.println("Erro ao fechar conexão" + e);
-                }
-            }
-        }
-        
-        return f;
-    }
-    
-    public static List<Funcionario> consultarFuncionario(String pesquisa){
-        List<Funcionario> lista = new ArrayList<>();
-        PreparedStatement stmt = null;
-        Connection conn = null;
-        
-        String sql = "SELECT * FROM tb_funcionarios WHERE NOME_FUNCIONARIO LIKE '%"+pesquisa+"%';";
-                
-        try {
-            conn = obterConexao();
-            stmt = conn.prepareStatement(sql);
-
-            ResultSet rs = stmt.executeQuery();
-            
-
-            while(rs.next()){
-                Funcionario func = new Funcionario();
-                func.setId(rs.getInt("COD_PRODUTO"));
                 func.setUsuario(rs.getString("LOGIN_SIST"));
                 func.setSenha(rs.getString("SENHA_SIST"));
                 func.setNome(rs.getString("NOME_FUNCIONARIO"));
