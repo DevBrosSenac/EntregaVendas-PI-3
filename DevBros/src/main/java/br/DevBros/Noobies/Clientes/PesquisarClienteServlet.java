@@ -1,6 +1,5 @@
 package br.DevBros.Noobies.Clientes;
 
-import br.DevBros.Noobies.Clientes.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
@@ -23,7 +22,7 @@ public class PesquisarClienteServlet extends HttpServlet {
        
         String valorPesquisa = request.getParameter("pesquisa");
         
-        List<Cliente> clientes = ClienteDAO.pesquisarCliente(valorPesquisa);
+        List<Cliente> clientes = ClienteDAO.consultarCliente(valorPesquisa);
         request.setAttribute("listaClientes",null);
         request.setAttribute("listaClientes", clientes);
             

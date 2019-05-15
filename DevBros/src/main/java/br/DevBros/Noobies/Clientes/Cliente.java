@@ -7,7 +7,7 @@ public class Cliente {
     private String cpf;
     private String nome;
     private String email;
-    private String telefone;
+    private int telefone;
     
     public Cliente(){
         
@@ -17,7 +17,7 @@ public class Cliente {
         this.codCliente = codCliente;
     }    
 
-    public Cliente(String nome,String cpf, String telefone, String email ) {
+    public Cliente(String nome,String cpf, int telefone, String email ) {
         this.nome = nome;
         this.cpf = cpf;
         this.telefone = telefone;
@@ -26,7 +26,7 @@ public class Cliente {
     }
     
     
-    public Cliente(int codCliente, String nome, String cpf,String telefone, String email ) {
+    public Cliente(int codCliente, String nome, String cpf,int telefone, String email ) {
         this.codCliente = codCliente;
         this.nome = nome;
         this.cpf = cpf;  
@@ -54,11 +54,11 @@ public class Cliente {
         this.email = email;
     }
 
-    public String getTelefone() {
+    public int getTelefone() {
         return telefone;
     }
 
-    public void setTelefone(String telefone) {
+    public void setTelefone(int telefone) {
         this.telefone = telefone;
     }
 

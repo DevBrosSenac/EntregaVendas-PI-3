@@ -1,8 +1,5 @@
 package br.DevBros.Noobies.Clientes;
 
-import br.DevBros.Noobies.Clientes.ClienteDAO;
-import br.DevBros.Noobies.Clientes.Cliente;
-
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
@@ -20,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author gabriela.vsmarques
  */
-@WebServlet(name = "ConsultarClienteServlet", urlPatterns = {"/consultarclientes"})
+@WebServlet(name = "ConsultarClienteServlet", urlPatterns = {"/consultarClientes"})
 public class ConsultarClienteServlet extends HttpServlet {
 
     private void listarClientes(String metodoHttp, HttpServletRequest request, HttpServletResponse response)
@@ -39,7 +36,9 @@ public class ConsultarClienteServlet extends HttpServlet {
             throws ServletException, IOException {
         try {
             listarClientes("GET", request, response);
-        } catch (SQLException | ClassNotFoundException ex) {
+        } catch (SQLException ex) {
+            Logger.getLogger(ConsultarClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
             Logger.getLogger(ConsultarClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
@@ -49,9 +48,12 @@ public class ConsultarClienteServlet extends HttpServlet {
             throws ServletException, IOException {
         try {
             listarClientes("POST", request, response);
-        } catch (SQLException | ClassNotFoundException ex) {
+        } catch (SQLException ex) {
+            Logger.getLogger(ConsultarClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
             Logger.getLogger(ConsultarClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
         doGet(request, response);
     }
+    
 }

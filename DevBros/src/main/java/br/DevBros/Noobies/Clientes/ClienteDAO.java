@@ -12,13 +12,16 @@ import java.util.List;
 public class ClienteDAO {
     //CADASTRO DE CLIENTES
     public static boolean incluirCliente(Cliente c){
+        
+        
         PreparedStatement stmt = null;
         Connection conn = null;
         
         boolean linhasAfetadas = false;
         
-        String sql = "INSERT INTO tb_clientes (NOME_CLIENTE, CPF_CLIENTE, TELEFONE_CLIENTE, EMAIL_CLIENTE)"
-                     + "VALUES(?,?,?,?)";
+                String sql = "INSERT INTO TB_CLIENTES(NOME_CLIENTE, CPF_CLIENTE, TELEFONE_CLIENTE, EMAIL_CLIENTE) VALUES(?, ?, ?, ?)";
+                
+                //INSERT INTO TB_CLIENTES (NOME_CLIENTE, CPF_CLIENTE, TELEFONE_CLIENTE, EMAIL_CLIENTE) VALUES ("Gb", "36799329873", "11973111852", "gabriela@plusoft.com.br");
         
         try {
             conn = obterConexao();
@@ -26,34 +29,42 @@ public class ClienteDAO {
            
             stmt.setString(1, c.getNome());
             stmt.setString(2, c.getCpf());           
-            stmt.setString(3, c.getTelefone());   
+            stmt.setInt(3, c.getTelefone());   
             stmt.setString(4, c.getEmail());
                   
             stmt.executeUpdate();
             
-        } catch (ClassNotFoundException | SQLException e) {
+        } 
+        
+        catch (SQLException ex){
             linhasAfetadas = false;
-            System.out.println("Não foi possível executar" + e);
+            System.out.println("Não foi possível executar. SQL Exception");
+        } 
+        catch (ClassNotFoundException ex){
+            linhasAfetadas = false;
+            System.out.println("Não foi possível executar. ClassNotFound EXception");
         } finally{
-            if(stmt != null){
-                try {
+            if (stmt != null){
+                try{
                     stmt.close();
-                } catch (SQLException e) {
+                } 
+                catch (SQLException ex){
                     linhasAfetadas = false;
-                    System.out.println("Erro ao fechar conexão" + e);
+                    System.out.println("Erro ao fechar stmt.");
                 }
             }
-            if(conn != null){
-                try {
+            if (conn != null){
+                try{
                     conn.close();
                     linhasAfetadas = true;
-                } catch (SQLException e) {
+                } 
+                catch (SQLException ex){
                     linhasAfetadas = false;
-                    System.out.println("Erro ao fechar conexão" + e);
+                    System.out.println("Erro ao fechar conn.");
                 }
             }
         }
-        return linhasAfetadas;
+    return linhasAfetadas;
     }
     //ALTERAÇÃO DE CLIENTES
     public static void alterarCliente(Cliente c){
@@ -69,7 +80,7 @@ public class ClienteDAO {
                       
             stmt.setString(1, c.getNome());
             stmt.setString(2, c.getCpf()); 
-            stmt.setString(3, c.getTelefone());
+            stmt.setInt(3, c.getTelefone());
             stmt.setString(4, c.getEmail());
             stmt.setInt(5, c.getcodCliente());
             
@@ -139,59 +150,13 @@ public class ClienteDAO {
         }
         return verdade;
     }
-    //pesquisa de cliente
-    public static List<Cliente> pesquisarCliente(String pesquisa){
-        PreparedStatement stmt = null;
-        Connection conn = null;
-        List<Cliente> lista = new ArrayList<Cliente>();
-        
-        String sql = "SELECT * FROM tb_clientes WHERE CPF_CLIENTE = '%"+pesquisa+"%'";
-        
-        try {
-            conn = obterConexao();
-            stmt = conn.prepareStatement(sql);
-                       
-            
-            ResultSet rs = stmt.executeQuery();
-           
-            while(rs.next()){
-                Cliente cliente = new Cliente();
-                cliente.setcodCliente(rs.getInt("COD_CLIENTE"));
-                cliente.setNome(rs.getString("NOME_CLIENTE"));
-                cliente.setCpf(rs.getString("CPF_CLIENTE"));                
-                cliente.setTelefone(rs.getString("TELEFONE_CLIENTE"));        
-                cliente.setEmail(rs.getString("EMAIL_CLIENTE"));
-                
-                lista.add(cliente);
-            }
-            
-        } catch (ClassNotFoundException | SQLException e) {
-            System.out.println("Não foi possível executar" + e);
-        } finally{
-            if(stmt != null){
-                try {
-                    stmt.close();
-                } catch (SQLException e) {
-                    System.out.println("Erro ao fechar conexão" + e);
-                }
-            }
-            if(conn != null){
-                try {
-                    conn.close();
-                } catch (SQLException e) {
-                    System.out.println("Erro ao fechar conexão" + e);
-                }
-            }
-        }
-        return lista;
-    }
     //listagem de clientes
     public static List<Cliente> listarClientes(){
         List<Cliente> lista = new ArrayList<>();
         PreparedStatement stmt = null;
         Connection conn = null;
         
-        String sql = "SELECT * FROM TB_CLIENTES";
+        String sql = "SELECT * FROM TB_CLIENTES LIMIT 8";
                 
         try {
             conn = obterConexao();
@@ -203,7 +168,7 @@ public class ClienteDAO {
                 cliente.setcodCliente(rs.getInt("COD_CLIENTE"));
                 cliente.setNome(rs.getString("NOME_CLIENTE"));
                 cliente.setCpf(rs.getString("CPF_CLIENTE"));                           
-                cliente.setTelefone(rs.getString("TELEFONE_CLIENTE"));   
+                cliente.setTelefone(rs.getInt("TELEFONE_CLIENTE"));   
                 cliente.setEmail(rs.getString("EMAIL_CLIENTE"));
                 
                 lista.add(cliente);
@@ -229,4 +194,55 @@ public class ClienteDAO {
         
         return lista;
     }
+    
+    public static List<Cliente> consultarCliente(String pesquisa){
+        List<Cliente> lista = new ArrayList<>();
+        PreparedStatement stmt = null;
+        Connection conn = null;
+        
+        String sql = "SELECT * FROM tb_clientes WHERE NOME_CLIENTE LIKE '%"+pesquisa+"%';";
+                
+        try {
+            conn = obterConexao();
+            stmt = conn.prepareStatement(sql);
+
+            ResultSet rs = stmt.executeQuery();
+            
+
+            while(rs.next()){
+                Cliente Cliente = new Cliente();
+                Cliente.setcodCliente(rs.getInt("COD_CLIENTE"));
+                Cliente.setNome(rs.getString("NOME_CLIENTE"));
+                Cliente.setCpf(rs.getString("CPF_CLIENTE"));
+                Cliente.setTelefone(rs.getInt("TELEFONE_CLIENTE"));
+                Cliente.setEmail(rs.getString("EMAIL_CLIENTE"));
+     
+                lista.add(Cliente);
+            }
+        } catch (ClassNotFoundException | SQLException e) {
+            System.out.println("Não foi possível executar" + e);
+        } finally{
+            if(stmt != null){
+                try {
+                    stmt.close();
+                } catch (SQLException e) {
+                    System.out.println("Erro ao fechar conexão" + e);
+                }
+            }
+            if(conn != null){
+                try {
+                    conn.close();
+                } catch (SQLException e) {
+                    System.out.println("Erro ao fechar conexão" + e);
+                }
+            }
+        }
+        
+        return lista;
+    }
+    
+    
+    
+    
+    
 }

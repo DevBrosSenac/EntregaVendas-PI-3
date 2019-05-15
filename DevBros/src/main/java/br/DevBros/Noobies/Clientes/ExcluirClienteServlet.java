@@ -1,6 +1,6 @@
 package br.DevBros.Noobies.Clientes;
 
-import br.DevBros.Noobies.Produtos.*;
+import br.DevBros.Noobies.Clientes.*;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,12 +14,12 @@ public class ExcluirClienteServlet extends HttpServlet {
     protected void excluirCliente(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        String codCliente = request.getParameter("codCliente");
+        int id  = Integer.parseInt(request.getParameter("codCliente"));
         
-        Cliente c = new Cliente(codCliente);
+        Cliente c = new Cliente(id);
         boolean retorno = ClienteDAO.excluirCliente(c);
         if(retorno){
-            response.sendRedirect("consultar");
+            response.sendRedirect("consultarclientes");
         }else{
             response.sendRedirect("consultar-cliente.jsp");
         }
